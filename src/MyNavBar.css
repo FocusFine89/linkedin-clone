@@ -1,0 +1,18 @@
+.App {
+    text-align: center;
+    font-size: small;
+  }
+  
+  .NavBarCustom{
+    border-bottom: 1px solid red;
+  }
+  
+  .navbarText{
+    color:grey;
+  }
+  
+  .SearchBar{
+    background-color: rgb(237,243,248);
+    border: none;
+    
+  }
