@@ -30,3 +30,7 @@ body {
 .main {
   width: 60%;
 }
+
+.fs-custom {
+  font-size: 1.3em;
+}

@@ -9,7 +9,7 @@ const Analisi = () => {
         <Card.Subtitle className="mb-2 text-muted">solo per te</Card.Subtitle>
         <Row>
           <Col xs={12} lg={4}>
-            <Card.Text className="fw-bold">
+            <Card.Text className="fw-bold fs-custom">
               vissualizzazioni del profilo
             </Card.Text>
             <Card.Subtitle>
@@ -17,7 +17,9 @@ const Analisi = () => {
             </Card.Subtitle>
           </Col>
           <Col xs={12} lg={4}>
-            <Card.Text className="fw-bold">impressioni del profilo</Card.Text>
+            <Card.Text className="fw-bold fs-custom">
+              impressioni del profilo
+            </Card.Text>
             <Card.Subtitle>
               Scopri chi sta interagendo con i tuoi post.
             </Card.Subtitle>
@@ -26,7 +28,7 @@ const Analisi = () => {
             </Card.Subtitle>
           </Col>
           <Col xs={12} lg={4}>
-            <Card.Text className="fw-bold">
+            <Card.Text className="fw-bold fs-custom">
               comparse nei motori di ricerca
             </Card.Text>
             <Card.Subtitle>
