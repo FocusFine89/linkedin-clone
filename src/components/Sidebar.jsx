@@ -2,8 +2,8 @@ import { Button, Col, Row } from "react-bootstrap";
 
 const Sidebar = () => {
   return (
-    <Row className="sidebar">
-      <Col xs={12} md={2}>
+    <Row className="sidebar bg-light">
+      <Col xs={12} md={12}>
         <div className="d-flex justify-content-between">
           <Button variant="success" className="rounded-pill">
             Italiano
@@ -25,7 +25,7 @@ const Sidebar = () => {
               <p>Junior Web Developer</p>
               <p>React JS</p>
               <Button variant="outline-dark" className="rounded-pill">
-                <i class="bi bi-plus"></i> Segui
+                <i className="bi bi-plus"></i> Segui
               </Button>
             </div>
           </div>
@@ -42,7 +42,7 @@ const Sidebar = () => {
               <p>Junior Web Developer</p>
               <p>JS BOOTSTRAP REACT</p>
               <Button variant="outline-dark" className="rounded-pill">
-                <i class="bi bi-plus"></i> Segui
+                <i className="bi bi-plus"></i> Segui
               </Button>
             </div>
           </div>
@@ -58,7 +58,7 @@ const Sidebar = () => {
               <p>Front End Developer</p>
               <p>React JS</p>
               <Button variant="outline-dark" className="rounded-pill">
-                <i class="bi bi-send-fill"></i> Messaggio
+                <i className="bi bi-send-fill"></i> Messaggio
               </Button>
             </div>
           </div>
@@ -74,7 +74,7 @@ const Sidebar = () => {
               <p>Back End Junior Developer</p>
               <p>JAVA </p>
               <Button variant="outline-dark" className="rounded-pill">
-                <i class="bi bi-plus"></i> Segui
+                <i className="bi bi-plus"></i> Segui
               </Button>
             </div>
           </div>
@@ -92,7 +92,7 @@ const Sidebar = () => {
               <p>Junior Web Developer</p>
               <p>React JS</p>
               <Button variant="outline-dark" className="rounded-pill">
-                <i class="bi bi-plus"></i> Segui
+                <i className="bi bi-plus"></i> Segui
               </Button>
             </div>
           </div>
@@ -109,7 +109,7 @@ const Sidebar = () => {
               <p>Junior Web Developer</p>
               <p>Angular</p>
               <Button variant="outline-dark" className="rounded-pill">
-                <i class="bi bi-send-fill"></i> Messaggio
+                <i className="bi bi-send-fill"></i> Messaggio
               </Button>
             </div>
           </div>
@@ -125,7 +125,7 @@ const Sidebar = () => {
               <p>Junior Web Developer</p>
               <p>Angular .NET</p>
               <Button variant="outline-dark" className="rounded-pill">
-                <i class="bi bi-send-fill"></i> Messaggio
+                <i className="bi bi-send-fill"></i> Messaggio
               </Button>
             </div>
           </div>
@@ -141,7 +141,7 @@ const Sidebar = () => {
               <p>Junior Web Developer</p>
               <p>React JS</p>
               <Button variant="outline-dark" className="rounded-pill">
-                <i class="bi bi-plus"></i> Segui
+                <i className="bi bi-plus"></i> Segui
               </Button>
             </div>
           </div>

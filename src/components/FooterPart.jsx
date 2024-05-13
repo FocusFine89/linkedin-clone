@@ -1,5 +1,5 @@
-import { Container, Row, Col, Form } from 'react-bootstrap'
-import '../FooterPart.css'
+import { Container, Row, Col, Form } from "react-bootstrap";
+import "../FooterPart.css";
 const FooterPart = () => {
   return (
     <Container id="footer" className="">
@@ -56,21 +56,21 @@ const FooterPart = () => {
 
             <div id="footer-settings" className="mr-3">
               <Col xs={12} md={6} lg={3} className="d-flex flex-row">
-                <i class="bi bi-question-circle-fill mx-0 mt-2"></i>
+                <i className="bi bi-question-circle-fill mx-0 mt-2"></i>
                 <div className="ml-2">
                   <a href="">Domande?</a>
                   <p>visita il nostro Centro aassistenza. </p>
                 </div>
               </Col>
               <Col xs={12} md={6} lg={3} className="d-flex flex-row">
-                <i class="bi bi-gear-fill mx-0 mt-2"></i>
+                <i className="bi bi-gear-fill mx-0 mt-2"></i>
                 <div className="ml-2">
                   <a href="">Gestisci il tuo accout e la tua privacy</a>
                   <p>Vai alle tue impostazioni</p>
                 </div>
               </Col>
               <Col xs={12} md={6} lg={3} className="d-flex flex-row">
-                <i class="bi bi-envelope-fill mx-0 mt-2"></i>
+                <i className="bi bi-envelope-fill mx-0 mt-2"></i>
                 <div className="ml-2">
                   <a href="">Trasparenza sui contenuti connsigliati</a>
                   <p>Scopri di più sui contenuti</p>
@@ -102,7 +102,7 @@ const FooterPart = () => {
         </Col>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default FooterPart
+export default FooterPart;

@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #f4f2ee;
 }
@@ -21,4 +25,8 @@ body {
 .verifica-ora {
   border-style: dashed;
   height: 30px;
+}
+
+.main {
+  width: 60%;
 }
