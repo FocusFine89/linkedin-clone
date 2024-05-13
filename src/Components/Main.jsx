@@ -2,12 +2,13 @@ import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
 import Analisi from "./Analisi";
 import Risorse from "./Risorse";
 import Info from "./Info";
+import Sidebar from "./Sidebar";
 
 const Main = () => {
   return (
-    <Container fluid className="main me-auto">
-      <Row className="profile-infocard position-relative flex-grow-3">
-        <Col xs={12} lg={6}>
+    <Container fluid className="main">
+      <Row>
+        <Col xs={12} md={8}>
           <Card className="mb-2">
             <Card.Img
               src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
@@ -34,12 +35,12 @@ const Main = () => {
                 <p className="info-contatto">Angri, campania, italia</p>
               </Card.Text>
               <div>
-                <Button variant="primary" className="rounded-pill">
+                <Button variant="primary" className="rounded-pill me-3 mb-2">
                   Disponibile per
                 </Button>
                 <Button
                   variant="light"
-                  className="rounded-pill text-primary border border-primary mx-3"
+                  className="rounded-pill text-primary border border-primary me-3"
                 >
                   Aggiungi sezione del profilo
                 </Button>
@@ -52,21 +53,13 @@ const Main = () => {
               </div>
             </Card.Body>
           </Card>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12} lg={6}>
           <Analisi />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12} lg={6}>
           <Risorse />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12} lg={6}>
           <Info />
+        </Col>
+
+        <Col xs={12} md={4}>
+          <Sidebar />
         </Col>
       </Row>
     </Container>

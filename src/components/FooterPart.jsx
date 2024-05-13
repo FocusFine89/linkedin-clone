@@ -1,5 +1,5 @@
-import { Container, Row, Col, Form } from 'react-bootstrap'
-import '../FooterPart.css'
+import { Container, Row, Col, Form } from "react-bootstrap";
+import "../FooterPart.css";
 
 const FooterPart = () => {
   return (
@@ -99,7 +99,7 @@ const FooterPart = () => {
         </Col>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default FooterPart
+export default FooterPart;
