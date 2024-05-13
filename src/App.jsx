@@ -1,13 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import "./Main.css";
-import Main from "./Components/Main";
-import React from "react";
+import "./Style.css";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <div className="App">
-      <Main />
+      <header className="App-header"></header>
+      <Sidebar />
     </div>
   );
 }
