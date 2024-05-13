@@ -1,13 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./Style.css";
-import Sidebar from "./components/Sidebar";
+import "./Main.css";
+
+import Main from "./Components/Main";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
-      <Sidebar />
+      <BrowserRouter>
+        <Routes>
+          <Route to="/" element={<Main />} />
+        </Routes>
+      </BrowserRouter>
+      <Main />
     </div>
   );
 }

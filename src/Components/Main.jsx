@@ -5,8 +5,8 @@ import Info from "./Info";
 
 const Main = () => {
   return (
-    <Container fluid className="main">
-      <Row className="profile-infocard position-relative">
+    <Container fluid className="main me-auto">
+      <Row className="profile-infocard position-relative flex-grow-3">
         <Col xs={12} lg={6}>
           <Card className="mb-2">
             <Card.Img
