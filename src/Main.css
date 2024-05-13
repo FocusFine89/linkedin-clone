@@ -1,0 +1,24 @@
+body {
+  background-color: #f4f2ee;
+}
+
+.card-img {
+  width: 100%;
+  min-height: 201px;
+}
+
+.profile-img {
+  width: 171px;
+  height: 170px;
+  top: 7em;
+  left: 2em;
+}
+
+.card-body-info {
+  margin-top: 5em;
+}
+
+.verifica-ora {
+  border-style: dashed;
+  height: 30px;
+}
