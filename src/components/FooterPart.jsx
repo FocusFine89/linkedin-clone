@@ -1,104 +1,93 @@
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import '../FooterPart.css'
+
 const FooterPart = () => {
   return (
     <Container id="footer" className="">
       <Row>
         <Col xs={12} md={10}>
           <Row>
-            <div className="mr-3">
-              <Col xs={12} md={6} lg={3}>
+            <Col xs={12} md={6} lg={3}>
+              <div className="mr-3">
                 <a href="">Informazioni</a>
-              </Col>
-              <Col xs={12} md={6} lg={3}>
+                <br />
                 <a href="">Linee guida della community</a>
-              </Col>
-              <Col xs={12} md={6} lg={3}>
-                <a href="">Privacy e condizioni </a>
-              </Col>
-              <Col xs={12} md={6} lg={3}>
+                <br />
+                <a href="">Privacy e condizioni</a>
+                <br />
                 <a href="">Sales solution</a>
-              </Col>
-              <Col xs={12} md={6} lg={3}>
+                <br />
                 <a href="">Centro sicurezza</a>
-              </Col>
-            </div>
 
-            <div className="mr-3">
-              <Col xs={12} md={6} lg={3}>
+                <br />
+              </div>
+            </Col>
+            <Col xs={12} md={6} lg={3}>
+              <div className="mr-3">
                 <a href="">Accessibilità</a>
-              </Col>
-              <Col xs={12} md={6} lg={3}>
+                <br />
                 <a href="">Carriera</a>
-              </Col>
-              <Col xs={12} md={6} lg={3}>
-                <a href="">opzioni di annuncio</a>
-              </Col>
-              <Col xs={12} md={6} lg={3}>
+                <br />
+                <a href="">Opzioni di annuncio</a>
+                <br />
                 <a href="">Mobile</a>
-              </Col>
-            </div>
-
-            <div className="mr-3">
-              <Col xs={12} md={6} lg={3}>
+                <br />
+              </div>
+            </Col>
+            <Col xs={12} md={6} lg={3}>
+              <div className="mr-3">
                 <a href="">Talent Solutions</a>
-              </Col>
-              <Col xs={12} md={6} lg={3}>
+                <br />
                 <a href="">Soluzioni di marketing</a>
-              </Col>
-              <Col xs={12} md={6} lg={3}>
+                <br />
                 <a href="">Pubblicità</a>
-              </Col>
-              <Col xs={12} md={6} lg={3}>
-                <a href="">piccole imprese</a>
-              </Col>
-            </div>
-
-            <div id="footer-settings" className="mr-3">
-              <Col xs={12} md={6} lg={3} className="d-flex flex-row">
-                <i class="bi bi-question-circle-fill mx-0 mt-2"></i>
+                <br />
+                <a href="">Piccole imprese</a>
+                <br />
+              </div>
+            </Col>
+            <Col xs={12} md={6} lg={3}>
+              <div id="footer-settings" className="mr-3">
+                <i className="bi bi-question-circle-fill mx-0 mt-2"></i>
                 <div className="ml-2">
                   <a href="">Domande?</a>
-                  <p>visita il nostro Centro aassistenza. </p>
+                  <p>visita il nostro Centro assistenza. </p>
                 </div>
-              </Col>
-              <Col xs={12} md={6} lg={3} className="d-flex flex-row">
-                <i class="bi bi-gear-fill mx-0 mt-2"></i>
+                <i className="bi bi-gear-fill mx-0 mt-2"></i>
                 <div className="ml-2">
-                  <a href="">Gestisci il tuo accout e la tua privacy</a>
+                  <a href="">Gestisci il tuo account e la tua privacy</a>
                   <p>Vai alle tue impostazioni</p>
                 </div>
-              </Col>
-              <Col xs={12} md={6} lg={3} className="d-flex flex-row">
-                <i class="bi bi-envelope-fill mx-0 mt-2"></i>
+                <i className="bi bi-envelope-fill mx-0 mt-2"></i>
                 <div className="ml-2">
-                  <a href="">Trasparenza sui contenuti connsigliati</a>
+                  <a href="">Trasparenza sui contenuti consigliati</a>
                   <p>Scopri di più sui contenuti</p>
                 </div>
-              </Col>
-            </div>
-
-            <div>
-              <Col xs={12} md={6} lg={3}>
-                <Form>
-                  <Form.Group conntrolId="laguages">
-                    <Form.Label>Seleziona Lingua</Form.Label>
-                    <Form.Control as="select">
-                      <option>Italiano</option>
-                      <option>Inglese</option>
-                      <option>Francese</option>
-                      <option>Spagnolo</option>
-                    </Form.Control>
-                  </Form.Group>
-                </Form>
-              </Col>
-            </div>
+              </div>
+            </Col>
           </Row>
+        </Col>
+        <Col xs={12} md={2}>
+          <div>
+            <Form>
+              <Form.Group controlId="languages w-50">
+                <Form.Label>Seleziona Lingua</Form.Label>
+                <Form.Control as="select">
+                  <option>Italiano</option>
+                  <option>Inglese</option>
+                  <option>Francese</option>
+                  <option>Spagnolo</option>
+                </Form.Control>
+              </Form.Group>
+            </Form>
+          </div>
         </Col>
       </Row>
       <Row>
         <Col className="mt-4">
-          <p>Linkedin corporation &copy; {new Date().getFullYear()}</p>
+          <p className="last-p">
+            Linkedin corporation &copy; {new Date().getFullYear()}
+          </p>
         </Col>
       </Row>
     </Container>

@@ -1,17 +1,11 @@
-#footer {
-  margin-left: 200px;
-}
-
-#footer img {
-  width: 60px;
-}
-
 #footer a,
 #footer p,
 #footer .form-label,
 #footer .form-control {
   color: #868686;
   font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
 }
 
 #footer a:hover {
@@ -32,11 +26,9 @@
 }
 
 #footer form {
-  width: 220px;
+  width: 200px;
 }
 
-.row {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.last-p {
+  justify-content: flex-start;
 }

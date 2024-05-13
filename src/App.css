@@ -1,22 +1,17 @@
-<<<<<<< HEAD
 .App {
   text-align: center;
   font-size: small;
 }
 
-.NavBarCustom{
+.NavBarCustom {
   border-bottom: 1px solid red;
 }
 
-.navbarText{
-  color:grey;
+.navbarText {
+  color: grey;
 }
 
-.SearchBar{
-  background-color: rgb(237,243,248);
+.SearchBar {
+  background-color: rgb(237, 243, 248);
   border: none;
-  
 }
-=======
->>>>>>> 677113391a6441fef492f22a9c081a100020b9a7
-
