@@ -1,5 +1,5 @@
 import { Col, Container, Form, Nav, Navbar } from "react-bootstrap"
-
+import '../MyNavBar.css'
 const MyNavBar = ()=>{
     return (
         <> <Navbar bg="white" className="NavbarCustom">
