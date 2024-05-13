@@ -10,58 +10,66 @@ const FooterPart = () => {
             <Col xs={12} md={6} lg={3}>
               <div className="mr-3">
                 <a href="">Informazioni</a>
-                <br />
-                <a href="">Linee guida della community</a>
-                <br />
-                <a href="">Privacy e condizioni</a>
-                <br />
-                <a href="">Sales solution</a>
-                <br />
-                <a href="">Centro sicurezza</a>
 
-                <br />
+                <a href="">Linee guida della community</a>
+
+                <a href="">Privacy e condizioni</a>
+
+                <a href="">Sales solution</a>
+
+                <a href="">Centro sicurezza</a>
               </div>
             </Col>
             <Col xs={12} md={6} lg={3}>
               <div className="mr-3">
                 <a href="">Accessibilità</a>
-                <br />
+
                 <a href="">Carriera</a>
-                <br />
+
                 <a href="">Opzioni di annuncio</a>
-                <br />
+
                 <a href="">Mobile</a>
-                <br />
               </div>
             </Col>
             <Col xs={12} md={6} lg={3}>
               <div className="mr-3">
                 <a href="">Talent Solutions</a>
-                <br />
+
                 <a href="">Soluzioni di marketing</a>
-                <br />
+
                 <a href="">Pubblicità</a>
-                <br />
+
                 <a href="">Piccole imprese</a>
-                <br />
               </div>
             </Col>
             <Col xs={12} md={6} lg={3}>
-              <div id="footer-settings" className="mr-3">
-                <i className="bi bi-question-circle-fill mx-0 mt-2"></i>
-                <div className="ml-2">
-                  <a href="">Domande?</a>
-                  <p>visita il nostro Centro assistenza. </p>
+              <div id="footer-settings" class="mr-3">
+                <div class="row">
+                  <div class="col-auto">
+                    <i class="bi bi-question-circle-fill mx-0 mt-2"></i>
+                  </div>
+                  <div class="col">
+                    <a href="">Domande?</a>
+                    <p>visita il nostro Centro assistenza. </p>
+                  </div>
                 </div>
-                <i className="bi bi-gear-fill mx-0 mt-2"></i>
-                <div className="ml-2">
-                  <a href="">Gestisci il tuo account e la tua privacy</a>
-                  <p>Vai alle tue impostazioni</p>
+                <div class="row">
+                  <div class="col-auto">
+                    <i class="bi bi-gear-fill mx-0 mt-2"></i>
+                  </div>
+                  <div class="col">
+                    <a href="">Gestisci il tuo account e la tua privacy</a>
+                    <p>Vai alle tue impostazioni</p>
+                  </div>
                 </div>
-                <i className="bi bi-envelope-fill mx-0 mt-2"></i>
-                <div className="ml-2">
-                  <a href="">Trasparenza sui contenuti consigliati</a>
-                  <p>Scopri di più sui contenuti</p>
+                <div class="row">
+                  <div class="col-auto">
+                    <i class="bi bi-envelope-fill mx-0 mt-2"></i>
+                  </div>
+                  <div class="col">
+                    <a href="">Trasparenza sui contenuti consigliati</a>
+                    <p>Scopri di più sui contenuti</p>
+                  </div>
                 </div>
               </div>
             </Col>

@@ -6,6 +6,7 @@
   font-size: 0.7rem;
   font-weight: 700;
   display: flex;
+  margin-bottom: 20px;
 }
 
 #footer a:hover {
@@ -23,12 +24,9 @@
 
 #footer i {
   color: #666666;
+  display: flex-start;
 }
 
 #footer form {
   width: 200px;
-}
-
-.last-p {
-  justify-content: flex-start;
 }
