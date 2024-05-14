@@ -5,13 +5,21 @@
 
 .NavBarCustom {
   border-bottom: 1px solid red;
+  text-align: center;
+  font-size: small;
+
 }
 
 .navbarText {
   color: grey;
+  text-align: center;
+  font-size: small;
 }
 
 .SearchBar {
   background-color: rgb(237, 243, 248);
   border: none;
+}
+.iconNavBar{
+  text-align: center;
 }
