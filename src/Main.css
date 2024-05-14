@@ -30,3 +30,12 @@ body {
 .main {
   width: 60%;
 }
+
+.card-esperienze {
+  width: 100px;
+}
+
+.button-card {
+  top: -30px;
+  right: 0;
+}
