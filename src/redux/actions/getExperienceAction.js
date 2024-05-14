@@ -54,3 +54,41 @@ export const CreateExperienceAction = (id_user, expObj) => {
     }
   };
 };
+
+// export const deleteExperienceAction = (id_user, expId) => {
+//   return async (dispatch) => {
+//     try {
+//       let response = await fetch(
+//         `https://striveschool-api.herokuapp.com/api/profile/${id_user}/experiences/${expId}`,
+//         {
+//           method: "DELETE",
+//           headers: {
+//             "Content-Type": "application/json",
+//             Authorization:
+//               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYmVmMjE2N2U1MzAwMTVmYTY5NzQiLCJpYXQiOjE3MTU1ODQ3NTQsImV4cCI6MTcxNjc5NDM1NH0.woy53zt1_zmruJl4tAXEXJzDTX-iJFUOCihD3MU3Coc",
+//           },
+//         }
+//       );
+//     } catch (err) {
+//       console.log("error", err);
+//     }
+//   };
+// };
+
+export const deleteExperienceAction = (id_user, expId) => {
+  fetch(
+    `https://striveschool-api.herokuapp.com/api/profile/${id_user}/experiences/${expId}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYmVmMjE2N2U1MzAwMTVmYTY5NzQiLCJpYXQiOjE3MTU1ODQ3NTQsImV4cCI6MTcxNjc5NDM1NH0.woy53zt1_zmruJl4tAXEXJzDTX-iJFUOCihD3MU3Coc",
+      },
+    }
+  ).then((response) => {
+    if (response.ok) {
+      alert("L'esperienza è stata cancellata");
+    }
+  });
+};

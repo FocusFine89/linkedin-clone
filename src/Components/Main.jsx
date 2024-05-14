@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUserAction } from "../redux/actions/getUserAction";
 import Esperienze from "./Esperienze";
+import { getExperienceAction } from "../redux/actions/getExperienceAction";
 
 const Main = () => {
   const user = useSelector((state) => state.userMe.content);
@@ -15,6 +16,7 @@ const Main = () => {
   useEffect(() => {
     dispatch(getUserAction());
   }, []);
+
   return (
     <Container fluid className="main">
       <Row>

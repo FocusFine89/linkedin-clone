@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,24 +6,24 @@ import {
   getExperienceAction,
 } from "../redux/actions/getExperienceAction";
 import ModalCreate from "./ModalCreate";
-import { Link } from "react-router-dom";
 
-const Esperienze = () => {
+const EsperienzePage = () => {
   const [modalShow, setModalShow] = useState(false);
   const dispatch = useDispatch();
   const experienceList = useSelector((state) => state.experienceList.content);
   const user = useSelector((state) => state.userMe.content);
-  const [trigger, setTrigger] = useState(true);
 
   useEffect(() => {
     dispatch(getExperienceAction(user._id));
   }, []);
 
+  useEffect(() => {}, [experienceList]);
+
   return (
     <Card className="card-experience position-relative">
-      <Row>
-        <Col xs={10}>
-          <Card.Title className="fw-bold ms-3 mt-3">Esperienza</Card.Title>
+      <Row className="ms-3 mt-3">
+        <Col xs={1}>
+          <Card.Title className="fw-bold  mt-2">Esperienza</Card.Title>
         </Col>
         <Col>
           <img
@@ -35,10 +34,9 @@ const Esperienze = () => {
           />
         </Col>
       </Row>
-
       <Card.Body>
         {experienceList.length > 0 &&
-          experienceList.slice(0, 4).map((experience) => {
+          experienceList.map((experience, i) => {
             return (
               <Card key={experience._id} className=" border-bottom-1">
                 <Row className="align-items-center">
@@ -87,11 +85,8 @@ const Esperienze = () => {
           })}
       </Card.Body>
       <ModalCreate show={modalShow} onHide={() => setModalShow(false)} />
-      <Link to="/experience" className="btn btn-light">
-        Mostra altro...
-      </Link>
     </Card>
   );
 };
 
-export default Esperienze;
+export default EsperienzePage;

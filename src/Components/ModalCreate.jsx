@@ -27,6 +27,13 @@ const ModalCreate = (props) => {
     console.log("OGGETTO", expObj);
 
     dispatch(CreateExperienceAction(user._id, expObj));
+
+    setAzienda("");
+    setDescrizione("");
+    setArea("");
+    setStartDate("");
+    setEndDate("");
+    setRuolo("");
   };
 
   return (

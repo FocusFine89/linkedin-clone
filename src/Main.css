@@ -43,3 +43,14 @@ body {
 /* .card-experience {
   height: 300px;
 } */
+
+.button-group-experience {
+  top: -40px;
+  right: 10px;
+}
+
+.button-add {
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+}
