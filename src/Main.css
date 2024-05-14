@@ -16,6 +16,7 @@ body {
   height: 170px;
   top: 7em;
   left: 2em;
+  cursor: pointer;
 }
 
 .card-body-info {
@@ -33,4 +34,19 @@ body {
 
 .fs-custom {
   font-size: 1.3em;
+}
+
+/* Modal */
+
+.modal-dark {
+  background-color: rgba(0, 0, 0, 0.5);
+  max-width: 100%;
+}
+
+.color-modal,
+.title-modal,
+.modal-header {
+  background-color: rgb(39, 38, 38);
+  color: white;
+  border: none;
 }
