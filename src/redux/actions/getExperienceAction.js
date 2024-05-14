@@ -54,9 +54,3 @@ export const CreateExperienceAction = (id_user, expObj) => {
     }
   };
 };
-
-export const saveExperienceAction = (expObj) => {
-  return (dispatch) => {
-    dispatch({ type: CREATE_EXPERIENCE, payload: expObj });
-  };
-};

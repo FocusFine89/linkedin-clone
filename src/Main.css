@@ -31,11 +31,15 @@ body {
   width: 60%;
 }
 
-.card-esperienze {
-  width: 100px;
+.img-esperienze {
+  width: 48px;
 }
 
 .button-card {
   top: -30px;
   right: 0;
 }
+
+/* .card-experience {
+  height: 300px;
+} */

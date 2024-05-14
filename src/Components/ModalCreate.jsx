@@ -2,14 +2,9 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  CreateExperienceAction,
-  saveExperienceAction,
-} from "../redux/actions/getExperienceAction";
+import { CreateExperienceAction } from "../redux/actions/getExperienceAction";
 
 const ModalCreate = (props) => {
-  const [expObj, setExpObj] = useState(null);
-
   const [azienda, setAzienda] = useState("");
   const [descrizione, setDescrizione] = useState("");
   const [area, setArea] = useState("");
@@ -18,21 +13,20 @@ const ModalCreate = (props) => {
   const [ruolo, setRuolo] = useState("");
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userMe.content);
-  const saveExp = useSelector((state) => state.createExperience.content);
 
   const handleAdd = () => {
-    setExpObj({
-      ...expObj,
+    const expObj = {
       role: ruolo,
       company: azienda,
       startDate: startDate,
       endDate: endDate,
       description: descrizione,
       area: area,
-    });
-    expObj &&
-      dispatch(saveExperienceAction(expObj)) &&
-      dispatch(CreateExperienceAction(user._id, saveExp));
+    };
+
+    console.log("OGGETTO", expObj);
+
+    dispatch(CreateExperienceAction(user._id, expObj));
   };
 
   return (

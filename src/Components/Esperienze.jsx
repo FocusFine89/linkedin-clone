@@ -16,36 +16,39 @@ const Esperienze = () => {
   }, []);
 
   return (
-    <Card className="border border-dark mt-5">
-      <Card.Body className="position-relative">
-        <div className="position-absolute button-card">
-          <Button
-            variant="secondary"
-            className="bg-transparent border-0 text-dark"
-            onClick={() => setModalShow(true)}
-          >
-            <span className="btn btn-secondary">Crea</span>
-          </Button>
+    <Card className="border border-dark mt-5  card-experience position-relative">
+      <div className="position-absolute button-card">
+        <Button
+          variant="secondary"
+          className="bg-transparent border-0 text-dark"
+          onClick={() => setModalShow(true)}
+        >
+          <span className="btn btn-secondary">Crea</span>
+        </Button>
 
-          <Button className="bg-transparent border-0 text-dark">
-            <span className="btn btn-secondary">Modifica</span>
-          </Button>
-          <Button
-            variant="secondary"
-            className="bg-transparent border-0 text-dark"
-          >
-            <span className="btn btn-danger">Elimina</span>
-          </Button>
-        </div>
+        <Button className="bg-transparent border-0 text-dark">
+          <span className="btn btn-secondary">Modifica</span>
+        </Button>
+        <Button
+          variant="secondary"
+          className="bg-transparent border-0 text-dark"
+        >
+          <span className="btn btn-danger">Elimina</span>
+        </Button>
+      </div>
+      <Card.Body>
         {experienceList.length > 0 &&
-          experienceList.map((experience) => {
+          experienceList.slice(0, 4).map((experience) => {
             return (
-              <Card>
+              <Card key={experience._id} className=" border-bottom-1">
                 <Row className="align-items-center">
-                  <Col xs={3}>
-                    <Card.Img src="./logo192.png" className="card-esperienze" />
+                  <Col xs={2}>
+                    <Card.Img
+                      src="https://static.licdn.com/aero-v1/sc/h/p4pvtlgggtwlz9lht17nvnqq"
+                      className="img-esperienze ms-3"
+                    />
                   </Col>
-                  <Col xs={9}>
+                  <Col xs={10}>
                     <Card.Title className="">{experience.comany}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">
                       {experience.role}
