@@ -8,13 +8,15 @@ import {
 } from "../redux/actions/getExperienceAction";
 import ModalCreate from "./ModalCreate";
 import { Link } from "react-router-dom";
+import ModificaEsperienze from "./ModificaEsperienze";
 
 const Esperienze = () => {
   const [modalShow, setModalShow] = useState(false);
+  const [modalShow2, setModalShow2] = useState(false);
+
   const dispatch = useDispatch();
   const experienceList = useSelector((state) => state.experienceList.content);
   const user = useSelector((state) => state.userMe.content);
-  const [trigger, setTrigger] = useState(true);
 
   useEffect(() => {
     dispatch(getExperienceAction(user._id));
@@ -67,7 +69,10 @@ const Esperienze = () => {
                       {experience.area}
                     </Card.Subtitle>
                     <div className="position-absolute button-group-experience">
-                      <Button className="bg-transparent border-0 text-dark rounded-5">
+                      <Button
+                        className="bg-transparent border-0 text-dark rounded-5"
+                        onClick={() => setModalShow2(true)}
+                      >
                         <img src="./pencil-square.svg" alt="" />
                       </Button>
                       <Button
@@ -82,6 +87,11 @@ const Esperienze = () => {
                     </div>
                   </Col>
                 </Row>
+                <ModificaEsperienze
+                  expId={experience._id}
+                  show={modalShow2}
+                  onHide={() => setModalShow2(false)}
+                />
               </Card>
             );
           })}
