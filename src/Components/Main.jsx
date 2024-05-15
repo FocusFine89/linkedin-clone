@@ -1,5 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Image,
+  Modal,
+  Row,
+} from "react-bootstrap";
 import Analisi from "./Analisi";
 import Risorse from "./Risorse";
 import Info from "./Info";
@@ -8,7 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getUserAction } from "../redux/actions/getUserAction";
 import Esperienze from "./Esperienze";
-import ModalChangeImage from "./ModalChangeImage";
+import ImageUpload from "./ImageUpload";
 
 const Main = () => {
   const user = useSelector((state) => state.userMe.content);
@@ -27,36 +35,6 @@ const Main = () => {
     setShowModal(false);
   };
 
-  const handleImageUpload = async (imageUrl) => {
-    const formData = new FormData();
-    formData.append("profile", selectedFile);
-
-    try {
-      const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${user._id}/picture`,
-        {
-          method: "POST",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYmVmMjE2N2U1MzAwMTVmYTY5NzQiLCJpYXQiOjE3MTU1ODQ3NTQsImV4cCI6MTcxNjc5NDM1NH0.woy53zt1_zmruJl4tAXEXJzDTX-iJFUOCihD3MU3Coc",
-          },
-          body: formData,
-        }
-      );
-
-      if (response.ok) {
-        console.log("Immagine caricata con successo");
-        const responseData = await response.json();
-        const imageUrl = responseData.image;
-        setProfileImage(imageUrl);
-      } else {
-        console.error("Errore durante il caricamento dell'immagine");
-      }
-    } catch (error) {
-      console.error("Errore durante il caricamento dell'immagine:", error);
-    }
-  };
-
   // fine nuova parte
 
   useEffect(() => {
@@ -68,19 +46,61 @@ const Main = () => {
       <Row>
         {user && (
           <Col xs={12} md={8}>
+            {/* modale */}
+
+            <Modal
+              show={showModal}
+              onHide={handleModalClose}
+              className="modal-dark"
+              size="lg"
+            >
+              <Modal.Header closeButton className="modal-image">
+                <Modal.Title className="title-modal">Foto Profilo</Modal.Title>
+              </Modal.Header>
+              <Modal.Body className="color-modal d-flex flex-column align-items-center justify-content-center">
+                <Image
+                  src={
+                    profileImage ||
+                    "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+                  }
+                  roundedCircle
+                  className="profile-img mb-2"
+                />
+
+                <Button variant="dark" className="me-2 mt-4">
+                  <i class="bi bi-eye"></i> Chiunque
+                </Button>
+
+                <div className="d-flex flex-row align-items-center">
+                  <Button variant="dark" className="me-2 mt-4">
+                    <i class="bi bi-pencil"></i> Modifica
+                  </Button>
+                  <ImageUpload
+                    userId={user._id}
+                    selectedFile={selectedFile}
+                    setSelectedFile={setSelectedFile}
+                  />{" "}
+                  <Button variant="dark" className="me-2 mt-4 p-1">
+                    <i class="bi bi-images"></i> Fotogrammi
+                  </Button>
+                  <Button variant="dark" className="mt-4 p-1 ms-3">
+                    <i class="bi bi-trash"></i> Elimina
+                  </Button>
+                </div>
+              </Modal.Body>
+            </Modal>
+
+            {/* fine modale */}
             <Card className="mb-2">
-              <ModalChangeImage
-                show={showModal}
-                onHide={() => setShowModal(false)}
-              />
               <Card.Img
                 src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
                 className="card-img"
               />
               <Image
-                src={user.image}
+                src={profileImage || user.image}
                 roundedCircle
                 className="profile-img position-absolute "
+                onClick={handleModalOpen}
               />
               <Card.Body className="card-body-info">
                 <Card.Text className="ms-2">

@@ -40,7 +40,7 @@ const ImageUpload = ({ userId, expId, postId, type, onImageUpload }) => {
           method: "POST",
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYzA3OTE2N2U1MzAwMTVmYTY5NzgiLCJpYXQiOjE3MTU2NzEwOTcsImV4cCI6MTcxNjg4MDY5N30.uO2mvhQUTeeblkf1bIJR61bZlAt_3tHo51W9gcOg8L4",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYmVmMjE2N2U1MzAwMTVmYTY5NzQiLCJpYXQiOjE3MTU1ODQ3NTQsImV4cCI6MTcxNjc5NDM1NH0.woy53zt1_zmruJl4tAXEXJzDTX-iJFUOCihD3MU3Coc",
           },
           body: formData,
         }
