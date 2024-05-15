@@ -16,6 +16,7 @@ body {
   height: 170px;
   top: 7em;
   left: 2em;
+  cursor: pointer;
 }
 
 .card-body-info {
