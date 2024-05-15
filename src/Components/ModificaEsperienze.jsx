@@ -21,6 +21,7 @@ function ModificaEsperienze() {
 
   useEffect(() => {
     dispatch(getSpecificExperienceAction(params.userID, params.expID));
+    //aggiungi la fetch qui
   }, []);
 
   return (

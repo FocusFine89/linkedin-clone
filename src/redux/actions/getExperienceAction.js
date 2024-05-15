@@ -47,6 +47,7 @@ export const CreateExperienceAction = (id_user, expObj) => {
       );
       if (response.ok) {
         console.log(response);
+        dispatch(getExperienceAction(id_user));
       } else {
         console.log(expObj);
       }

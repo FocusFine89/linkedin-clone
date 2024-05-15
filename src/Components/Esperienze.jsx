@@ -8,7 +8,6 @@ import {
 } from "../redux/actions/getExperienceAction";
 import ModalCreate from "./ModalCreate";
 import { Link } from "react-router-dom";
-import ModificaEsperienze from "./ModificaEsperienze";
 
 const Esperienze = () => {
   const [modalShow, setModalShow] = useState(false);
