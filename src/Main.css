@@ -16,7 +16,6 @@ body {
   height: 170px;
   top: 7em;
   left: 2em;
-  cursor: pointer;
 }
 
 .card-body-info {
@@ -35,8 +34,28 @@ body {
 .fs-custom {
   font-size: 1.3em;
 }
+.img-esperienze {
+  width: 48px;
+}
+.button-card {
+  top: -30px;
+  right: 0;
+}
 
-/* Modal */
+/* .card-experience {
+  height: 300px;
+} */
+
+.button-group-experience {
+  top: -40px;
+  right: 10px;
+}
+
+.button-add {
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+}
 
 .modal-dark {
   background-color: rgba(0, 0, 0, 0.5);
@@ -45,7 +64,7 @@ body {
 
 .color-modal,
 .title-modal,
-.modal-header {
+.modal-image {
   background-color: rgb(39, 38, 38);
   color: white;
   border: none;

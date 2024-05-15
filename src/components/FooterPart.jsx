@@ -43,30 +43,30 @@ const FooterPart = () => {
               </div>
             </Col>
             <Col xs={12} md={6} lg={3}>
-              <div id="footer-settings" class="mr-3">
-                <div class="row">
-                  <div class="col-auto">
-                    <i class="bi bi-question-circle-fill mx-0 mt-2"></i>
+              <div id="footer-settings" className="mr-3">
+                <div className="row">
+                  <div className="col-auto">
+                    <i className="bi bi-question-circle-fill mx-0 mt-2"></i>
                   </div>
-                  <div class="col">
+                  <div className="col">
                     <a href="">Domande?</a>
                     <p>visita il nostro Centro assistenza. </p>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-auto">
-                    <i class="bi bi-gear-fill mx-0 mt-2"></i>
+                <div className="row">
+                  <div className="col-auto">
+                    <i className="bi bi-gear-fill mx-0 mt-2"></i>
                   </div>
-                  <div class="col">
+                  <div className="col">
                     <a href="">Gestisci il tuo account e la tua privacy</a>
                     <p>Vai alle tue impostazioni</p>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-auto">
-                    <i class="bi bi-envelope-fill mx-0 mt-2"></i>
+                <div className="row">
+                  <div className="col-auto">
+                    <i className="bi bi-envelope-fill mx-0 mt-2"></i>
                   </div>
-                  <div class="col">
+                  <div className="col">
                     <a href="">Trasparenza sui contenuti consigliati</a>
                     <p>Scopri di più sui contenuti</p>
                   </div>
