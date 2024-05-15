@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FooterPart from "./Components/FooterPart";
 import MyNavBar from "./Components/MyNavBar";
 import EsperienzePage from "./Components/EsperienzePage";
+import ModificaEsperienze from "./Components/ModificaEsperienze";
 
 function App() {
   return (
@@ -16,7 +17,11 @@ function App() {
         <MyNavBar />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/experience" element={<EsperienzePage />} />
+          <Route path="/experience/:userID" element={<EsperienzePage />} />
+          <Route
+            path="/modifica/:userID/:expID"
+            element={<ModificaEsperienze />}
+          />
         </Routes>
         <FooterPart />
       </BrowserRouter>
