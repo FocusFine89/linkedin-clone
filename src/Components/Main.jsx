@@ -5,14 +5,60 @@ import Risorse from "./Risorse";
 import Info from "./Info";
 import Sidebar from "./Sidebar";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getUserAction } from "../redux/actions/getUserAction";
 import Esperienze from "./Esperienze";
-import { getExperienceAction } from "../redux/actions/getExperienceAction";
+import ModalChangeImage from "./ModalChangeImage";
 
 const Main = () => {
   const user = useSelector((state) => state.userMe.content);
   const dispatch = useDispatch();
+  // nuova parte
+
+  const [showModal, setShowModal] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleModalOpen = () => {
+    setShowModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
+  const handleImageUpload = async (imageUrl) => {
+    const formData = new FormData();
+    formData.append("profile", selectedFile);
+
+    try {
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${user._id}/picture`,
+        {
+          method: "POST",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYmVmMjE2N2U1MzAwMTVmYTY5NzQiLCJpYXQiOjE3MTU1ODQ3NTQsImV4cCI6MTcxNjc5NDM1NH0.woy53zt1_zmruJl4tAXEXJzDTX-iJFUOCihD3MU3Coc",
+          },
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        console.log("Immagine caricata con successo");
+        const responseData = await response.json();
+        const imageUrl = responseData.image;
+        setProfileImage(imageUrl);
+      } else {
+        console.error("Errore durante il caricamento dell'immagine");
+      }
+    } catch (error) {
+      console.error("Errore durante il caricamento dell'immagine:", error);
+    }
+  };
+
+  // fine nuova parte
+
   useEffect(() => {
     dispatch(getUserAction());
   }, []);
@@ -23,6 +69,10 @@ const Main = () => {
         {user && (
           <Col xs={12} md={8}>
             <Card className="mb-2">
+              <ModalChangeImage
+                show={showModal}
+                onHide={() => setShowModal(false)}
+              />
               <Card.Img
                 src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
                 className="card-img"
