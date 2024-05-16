@@ -1,49 +1,61 @@
-import { useState } from "react";
-import { Alert, Button, Card, Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import JobsSidebar from "./JobsSidebar";
+import { useState } from 'react'
+import { Alert, Button, Card, Col, Row, Spinner } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import JobsSidebar from './JobsSidebar'
 
 const JobPage = () => {
-  const [jobs, setJobs] = useState([]);
-  const [search, setSearch] = useState("");
+  const [jobs, setJobs] = useState([])
+  const [search, setSearch] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const getFetchJobs = (searchJob) => {
+  const getFetchJobs = searchJob => {
+    setLoading(true)
+
     fetch(
       `https://strive-benchmark.herokuapp.com/api/jobs?search=${searchJob}`,
       {
-        method: "GET",
+        method: 'GET',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       }
     )
-      .then((response) => {
+      .then(response => {
         if (response.ok) {
-          return response.json();
+          return response.json()
         } else {
-          throw new Error("Errore nella fetch");
+          throw new Error('Errore nella fetch')
         }
       })
-      .then((response) => {
-        setJobs(response.data);
-      });
-  };
+      .then(response => {
+        setJobs(response.data)
+      })
+      .catch(error => {
+        console.error('Errore durante la fetch:', error)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }
 
   return (
     <Row className="justify-content-center my-3">
-      <Col xs={12} md={2}>
+      <Col xs={12} md={3}>
         <JobsSidebar />
       </Col>
-      <Col xs={12} md={4}>
-        <div className="mb-3 p-1">
+      <Col xs={12} md={6}>
+        <div className="mb-3 d-flex align-items-center">
           <input
-            className="w-75 me-2 input-search-job"
-            placeholder="search for a job"
+            className="form-control me-2"
+            placeholder="Cerca lavoro"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={e => setSearch(e.target.value)}
           />
-          <Button className="p-1" onClick={() => getFetchJobs(search)}>
-            Search
+          <Button
+            className="btn btn-primary"
+            onClick={() => getFetchJobs(search)}
+          >
+            Cerca
           </Button>
         </div>
 
@@ -53,36 +65,39 @@ const JobPage = () => {
             <Card.Subtitle className="mb-2 text-muted">
               Sulla base del tuo profilo e della tua cronologia delle ricerche
             </Card.Subtitle>
-            {/* Annuncio di lavoro, TODO : Fare il map dopo */}
-            {jobs.length > 0 ? (
-              jobs.slice(0, 10).map((job) => {
-                return (
-                  <Card className="border-0">
-                    <Card.Body>
-                      <Card.Title>
-                        <Card.Link href={job.url}>{job.title}</Card.Link>
-                      </Card.Title>
-                      <Card.Title className="fs-6">
-                        {job.company_name}
-                      </Card.Title>
-                      <Card.Title className="fs-6 text-muted">
-                        {`${job.candidate_required_location} (${job.job_type})`}
-                      </Card.Title>
-                    </Card.Body>
+            {loading ? (
+              <div className="d-flex justify-content-center">
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Caricamento...</span>
+                </Spinner>
+              </div>
+            ) : jobs.length > 0 ? (
+              jobs.slice(0, 10).map(job => (
+                <Card key={job.id} className="border-0 mb-3">
+                  <Card.Body>
+                    <Card.Title>
+                      <a href={job.url} className="text-decoration-none">
+                        {job.title}
+                      </a>
+                    </Card.Title>
+                    <Card.Text className="fs-6">{job.company_name}</Card.Text>
+                    <Card.Text className="fs-6 text-muted">
+                      {`${job.candidate_required_location} (${job.job_type})`}
+                    </Card.Text>
                     <hr />
-                  </Card>
-                );
-              })
+                  </Card.Body>
+                </Card>
+              ))
             ) : (
               <Alert variant="light" className="mt-4 fw-bold">
-                Non ci sono ricerche
+                Nessun risultato trovato
               </Alert>
             )}
           </Card.Body>
         </Card>
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default JobPage;
+export default JobPage
