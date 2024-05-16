@@ -1,0 +1,41 @@
+
+  .subTitle{
+    color: rgb(102, 101, 101);
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .sidebar-content {
+    
+    width: 300px; 
+    padding: 20px;
+    background-color: #0073b1;
+    border-radius: 5px;
+    color: black;
+  }
+  
+ #btnDetails{
+    background-color: lightgray;
+    width: 40%;
+    height: 25px;
+    color:black
+ }
+  
+  .notizia {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .notizia h6 {
+    margin: 0;
+    font-size: 16px;
+  }
+  .notizia:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .notizia span {
+    font-size: 14px;
+    color: grey;
+    font-weight: 200;
+  }
+  

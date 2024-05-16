@@ -8,12 +8,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FooterPart from "./Components/FooterPart";
 import MyNavBar from "./Components/MyNavBar";
 import EsperienzePage from "./Components/EsperienzePage";
+import SideBarHome from "./Components/SideBarHome";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <MyNavBar />
+        <SideBarHome/>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/experience" element={<EsperienzePage />} />
