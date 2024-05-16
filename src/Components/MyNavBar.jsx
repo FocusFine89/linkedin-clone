@@ -1,12 +1,12 @@
-import { Col, Container, Form, Nav, Navbar } from 'react-bootstrap'
-import '../MyNavBar.css'
-import { Link, useLocation } from 'react-router-dom'
+import { Col, Container, Form, Nav, Navbar } from "react-bootstrap";
+import "../MyNavBar.css";
+import { Link, useLocation } from "react-router-dom";
 const MyNavBar = () => {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <>
-      {' '}
+      {" "}
       <Navbar bg="white" className="NavbarCustom">
         <Container className=" d-flex align-items-center">
           <Col xs={1} className="text-end">
@@ -35,7 +35,7 @@ const MyNavBar = () => {
               <div className="iconNavBar me-2">
                 <Link
                   className={`navbarText ${
-                    location.pathname === '/home' ? 'active' : ''
+                    location.pathname === "/" ? "active" : ""
                   }`}
                   to="/home"
                 >
@@ -72,7 +72,7 @@ const MyNavBar = () => {
                 </Link>
               </div>
               <div className="iconNavBar">
-                <Link className="navbarText pt-0 " href="#pricing">
+                <Link className="navbarText pt-0 px-4" to="/jobs">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -105,7 +105,7 @@ const MyNavBar = () => {
                     focusable="false"
                   >
                     <path d="M16 4H8a7 7 0 000 14h4v4l8.16-5.39A6.78 6.78 0 0023 11a7 7 0 00-7-7zm-8 8.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zm4 0A1.25 1.25 0 1113.25 11 1.25 1.25 0 0112 12.25zm4 0A1.25 1.25 0 1117.25 11 1.25 1.25 0 0116 12.25z"></path>
-                  </svg>{' '}
+                  </svg>{" "}
                   Messaggistica
                 </Link>
               </div>
@@ -122,14 +122,14 @@ const MyNavBar = () => {
                     focusable="false"
                   >
                     <path d="M22 19h-8.28a2 2 0 11-3.44 0H2v-1a4.52 4.52 0 011.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0122 18zM18.21 7.44A6.27 6.27 0 0012 2a6.27 6.27 0 00-6.21 5.44L5 13h14z"></path>
-                  </svg>{' '}
+                  </svg>{" "}
                   Notifiche
                 </Link>
               </div>
               <div className="iconNavBar">
                 <Link
                   className={`navbarText ${
-                    location.pathname === '/' ? 'active' : ''
+                    location.pathname === "/" ? "active" : ""
                   }`}
                   to="/"
                 >
@@ -144,7 +144,7 @@ const MyNavBar = () => {
 
               <div className="iconNavBar">
                 <Link className="navbarText pt-0">
-                  {' '}
+                  {" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -156,7 +156,7 @@ const MyNavBar = () => {
                     focusable="false"
                   >
                     <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
-                  </svg>{' '}
+                  </svg>{" "}
                   Per aziende
                 </Link>
               </div>
@@ -165,7 +165,7 @@ const MyNavBar = () => {
         </Container>
       </Navbar>
     </>
-  )
-}
+  );
+};
 
-export default MyNavBar
+export default MyNavBar;
