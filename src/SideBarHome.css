@@ -1,23 +1,31 @@
-.subTitle {
+
+.subTitle{
   color: rgb(102, 101, 101);
   font-weight: 600;
   font-size: 17px;
 }
 .sidebar-content {
-  width: 300px;
+  
+  width: 300px; 
   padding: 20px;
   background-color: #0073b1;
   border-radius: 5px;
   color: black;
-  border: 1px solid lightgray;
 }
 
-#btnDetails {
+.footerAside{
+  width: 300px;
+  padding:20px;
+  font-size: 11px;
+  color: gray;
+  font-weight: 400;
+}
+
+#btnDetails{
   background-color: lightgray;
   width: 40%;
   height: 25px;
-  font-size: 15px;
-  color: black;
+  color:black
 }
 
 .notizia {
