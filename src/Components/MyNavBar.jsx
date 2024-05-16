@@ -37,7 +37,7 @@ const MyNavBar = () => {
                   className={`navbarText ${
                     location.pathname === "/" ? "active" : ""
                   }`}
-                  to="/home"
+                  to="/"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,7 @@ const MyNavBar = () => {
                   className={`navbarText ${
                     location.pathname === "/" ? "active" : ""
                   }`}
-                  to="/"
+                  to="/profile"
                 >
                   <img
                     src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
