@@ -9,6 +9,7 @@ import FooterPart from "./Components/FooterPart";
 import MyNavBar from "./Components/MyNavBar";
 import EsperienzePage from "./Components/EsperienzePage";
 import SideBarHome from "./Components/SideBarHome";
+import Post from "./Components/Post";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         </Routes>
         <FooterPart />
       </BrowserRouter>
+      <Post /> 
     </div>
   );
 }
