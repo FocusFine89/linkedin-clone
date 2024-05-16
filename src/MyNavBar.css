@@ -1,25 +1,25 @@
-/* .App {
-  text-align: center;
-  font-size: small;
-} */
-
 .NavBarCustom {
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #ddd;
   text-align: center;
-  font-size: small;
-
+  font-size: 14px;
 }
 
 .navbarText {
-  color: grey;
-  text-align: center;
-  font-size: small;
+  color: #666;
+  font-size: 12px;
+  text-decoration: none;
 }
 
 .SearchBar {
-  background-color: rgb(237, 243, 248);
+  background-color: #edf3f8;
   border: none;
 }
-.iconNavBar{
+
+.iconNavBar {
   text-align: center;
+  cursor: pointer;
+}
+
+.iconNavBar:hover svg {
+  fill: black;
 }
