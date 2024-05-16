@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import '../SideBarHome.css'
 import Button from 'react-bootstrap/Button'
-import { Border } from 'react-bootstrap-icons'
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from 'react-bootstrap'
 
 const SideBarHome = () => {
   const [showMore, setShowMore] = useState(false)
@@ -61,17 +60,26 @@ const SideBarHome = () => {
         </div>
       </div>
       <Row className="footerAside">
-<Col className="footer-col text-center col-6 pb-2">informazioni</Col>
-<Col className="footer-col text-center col-6 pb-2">accessibilità</Col>
-<Col className="footer-col text-center col-6 pb-2">centro assistenza</Col>
-<Col className="footer-col text-center col-6 pb-2">privacy e condizioni</Col>
-<Col className="footer-col text-center col-12 pb-2">opzioni per gli annunci pubblicitari</Col>
-<Col className="footer-col text-center col-6 pb-2">pubblicità</Col>
-<Col className="footer-col text-center col-6 pb-2">servizi alle aziende</Col>
-<Col className="footer-col text-center col-6 pb-2">scarica l app linkedin</Col>
-<Col className="footer-col text-center col-6">altro</Col>
-
-</Row>
+        <Col className="footer-col text-center col-6 pb-2">informazioni</Col>
+        <Col className="footer-col text-center col-6 pb-2">accessibilità</Col>
+        <Col className="footer-col text-center col-6 pb-2">
+          centro assistenza
+        </Col>
+        <Col className="footer-col text-center col-6 pb-2">
+          privacy e condizioni
+        </Col>
+        <Col className="footer-col text-center col-12 pb-2">
+          opzioni per gli annunci pubblicitari
+        </Col>
+        <Col className="footer-col text-center col-6 pb-2">pubblicità</Col>
+        <Col className="footer-col text-center col-6 pb-2">
+          servizi alle aziende
+        </Col>
+        <Col className="footer-col text-center col-6 pb-2">
+          scarica l app linkedin
+        </Col>
+        <Col className="footer-col text-center col-6">altro</Col>
+      </Row>
     </div>
   )
 }
