@@ -151,7 +151,7 @@ function ModificaEsperienze() {
           {modificato && (
             <Alert variant="success" className="mt-3">
               hai modificato l'esperienza,{" "}
-              <Link to="/">Torna al tuo Profilo</Link>{" "}
+              <Link to="/profile">Torna al tuo Profilo</Link>{" "}
             </Alert>
           )}
         </Card>
