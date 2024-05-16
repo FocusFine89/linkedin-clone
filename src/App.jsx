@@ -8,8 +8,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FooterPart from "./Components/FooterPart";
 import MyNavBar from "./Components/MyNavBar";
 import EsperienzePage from "./Components/EsperienzePage";
-import SideBarHome from "./Components/SideBarHome";
-import Post from "./Components/Post";
+// import SideBarHome from "./Components/SideBarHome";
+// import Post from "./Components/Post";
 import ModificaEsperienze from "./Components/ModificaEsperienze";
 
 function App() {
@@ -17,7 +17,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <MyNavBar />
-        <SideBarHome />
+        {/* <SideBarHome /> */}
+        {/* <Post /> */}
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/experience/:userID" element={<EsperienzePage />} />
@@ -28,7 +29,6 @@ function App() {
         </Routes>
         <FooterPart />
       </BrowserRouter>
-      <Post />
     </div>
   );
 }
