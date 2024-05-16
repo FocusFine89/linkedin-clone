@@ -1,0 +1,17 @@
+i,
+h6 {
+  cursor: pointer;
+}
+
+.free-job-offer {
+  position: relative;
+  display: inline-block;
+}
+
+.free-job-offer:hover::before {
+  width: 100%;
+}
+
+.free-job-offer:hover {
+  background-color: rgba(0, 0, 255, 0.1);
+}
