@@ -9,6 +9,7 @@ body {
 .card-img {
   width: 100%;
   min-height: 201px;
+  border-radius: 0%;
 }
 
 .profile-img {

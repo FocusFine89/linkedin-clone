@@ -31,10 +31,7 @@ const AddingPost = () => {
         console.log('Post pubblicato con successo')
         handleClose()
       } else {
-        console.error(
-          'Errore durante il tentativo di pubblicare il post:',
-          response.statusText
-        )
+        console.error('Errore durante il tentativo di pubblicare il post:')
       }
     } catch (error) {
       console.error(
@@ -47,7 +44,7 @@ const AddingPost = () => {
   return (
     <Card
       className="mb-2"
-      style={{ maxWidth: '750px', borderRadius: '0.3rem' }}
+      style={{ maxWidth: '750px', maxHeight: '500px', borderRadius: '0.3rem' }}
     >
       <Card.Body>
         <Card.Title className="fw-bold">Aggiungi un Post</Card.Title>
@@ -96,7 +93,7 @@ const AddingPost = () => {
               <Form.Control
                 as="textarea"
                 rows={3}
-                placeholder="Di cosa vuoi parlare?"
+                placeholder="Di cosa vorresti parlare?"
                 value={postText}
                 onChange={e => setPostText(e.target.value)}
               />
@@ -104,22 +101,22 @@ const AddingPost = () => {
           </Form>
           <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex align-items-center">
-              <Button variant="light" className="me-2">
+              <Button variant="light" className="me-2 mt-2">
                 <MdOutlinePhotoSizeSelectActual />
               </Button>
-              <Button variant="light" className="me-2">
+              <Button variant="light" className="me-2 mt-2">
                 <AiFillYoutube />
               </Button>
-              <Button variant="light" className="me-2">
+              <Button variant="light" className="me-2 mt-2">
                 <HiOutlineDocumentChartBar />
               </Button>
-              <Button variant="light" className="me-2">
+              <Button variant="light" className="me-2 mt-2">
                 <BsThreeDots />
               </Button>
             </div>
             <div className="d-flex align-items-center">
               <Button variant="light" className="me-2"></Button>
-              <Button variant="primary" onClick={handlePost}>
+              <Button variant="primary" className="mt-2" onClick={handlePost}>
                 Post
               </Button>
             </div>
