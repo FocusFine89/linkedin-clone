@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import '../SideBarHome.css'
 import Button from 'react-bootstrap/Button'
-import { Border } from 'react-bootstrap-icons'
 
 const SideBarHome = () => {
   const [showMore, setShowMore] = useState(false)

@@ -32,12 +32,8 @@ const Post = () => {
                 <i className="bi bi-plus-lg"></i> Segui
               </h4>
             </div>
-            <p>{singlePost.text}</p>
-            <img
-              className="w-100 mb-3"
-              src="https://www.thewowstyle.com/wp-content/uploads/2015/02/beautiful_mountain-wide.jpg"
-              alt=""
-            />
+            <p className="ms-5">{singlePost.text}</p>
+            <img className="w-100 mb-3" src={singlePost.image} alt="" />
             <div className="d-flex justify-content-evenly">
               <div>
                 <h5>
