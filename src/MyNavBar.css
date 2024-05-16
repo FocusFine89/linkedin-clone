@@ -8,18 +8,30 @@
   color: #666;
   font-size: 12px;
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
 }
 
 .SearchBar {
   background-color: #edf3f8;
   border: none;
+  margin-left: 15px;
 }
 
 .iconNavBar {
-  text-align: center;
   cursor: pointer;
+  text-align: center;
 }
 
 .iconNavBar:hover svg {
   fill: black;
+}
+
+.active {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  transition: border-bottom 0.3s ease;
 }
