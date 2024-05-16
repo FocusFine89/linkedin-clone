@@ -12,6 +12,7 @@ import HomePage from "./Components/Hompage";
 // import SideBarHome from "./Components/SideBarHome";
 // import Post from "./Components/Post";
 import ModificaEsperienze from "./Components/ModificaEsperienze";
+import JobPage from "./Components/JobPage";
 
 function App() {
   return (
@@ -23,8 +24,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
 
-          <Route path="/Profile" element={<Main />} />
+          <Route path="/profile" element={<Main />} />
           <Route path="/experience/:userID" element={<EsperienzePage />} />
+          <Route path="/jobs" element={<JobPage />} />
+
           <Route
             path="/modifica/:userID/:expID"
             element={<ModificaEsperienze />}
