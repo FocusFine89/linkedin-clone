@@ -10,20 +10,25 @@ import MyNavBar from "./Components/MyNavBar";
 import EsperienzePage from "./Components/EsperienzePage";
 import SideBarHome from "./Components/SideBarHome";
 import Post from "./Components/Post";
+import ModificaEsperienze from "./Components/ModificaEsperienze";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <MyNavBar />
-        <SideBarHome/>
+        <SideBarHome />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/experience" element={<EsperienzePage />} />
+          <Route path="/experience/:userID" element={<EsperienzePage />} />
+          <Route
+            path="/modifica/:userID/:expID"
+            element={<ModificaEsperienze />}
+          />
         </Routes>
         <FooterPart />
       </BrowserRouter>
-      <Post /> 
+      <Post />
     </div>
   );
 }

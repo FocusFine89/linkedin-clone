@@ -47,6 +47,7 @@ export const CreateExperienceAction = (id_user, expObj) => {
       );
       if (response.ok) {
         console.log(response);
+        dispatch(getExperienceAction(id_user));
       } else {
         console.log(expObj);
       }
@@ -89,6 +90,32 @@ export const ModifieSpecificExperienceAction = (id_user, expId, expObj) => {
           },
         }
       );
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
+};
+
+export const getSpecificExperienceAction = (id_user, expid) => {
+  return async (dispatch) => {
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${id_user}/experiences/${expid}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYmVmMjE2N2U1MzAwMTVmYTY5NzQiLCJpYXQiOjE3MTU1ODQ3NTQsImV4cCI6MTcxNjc5NDM1NH0.woy53zt1_zmruJl4tAXEXJzDTX-iJFUOCihD3MU3Coc",
+          },
+        }
+      );
+      if (response.ok) {
+        let experience = await response.json();
+        dispatch({ type: GET_SPECIFIC_EXPERIENCE, payload: experience });
+      } else {
+        throw new Error("Error in fetching user");
+      }
     } catch (err) {
       console.log("error", err);
     }

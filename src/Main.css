@@ -4,6 +4,7 @@
 
 body {
   background-color: #f4f2ee;
+  overflow-x: hidden;
 }
 
 .card-img {

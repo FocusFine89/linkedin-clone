@@ -3,8 +3,10 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { getSpecificExperienceAction } from "../redux/actions/getExperienceAction";
+import { useParams } from "react-router-dom";
+import { Card, Col, Row } from "react-bootstrap";
 
-function ModificaEsperienze(props) {
+function ModificaEsperienze() {
   const [azienda, setAzienda] = useState("");
   const [descrizione, setDescrizione] = useState("");
   const [area, setArea] = useState("");
@@ -12,75 +14,57 @@ function ModificaEsperienze(props) {
   const [endDate, setEndDate] = useState("");
   const [ruolo, setRuolo] = useState("");
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userMe.content);
-  const [specific, setSpecific] = useState();
+  const params = useParams();
+  const specific = useSelector(
+    (state) => state.experienceList.specificExperience
+  );
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(getSpecificExperienceAction(params.userID, params.expID));
+    //aggiungi la fetch qui
+  }, []);
 
   return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modifica Esperienza
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body className="d-flex flex-column w-50">
-        <input
-          type="text"
-          placeholder="Ruolo"
-          value={ruolo}
-          onChange={(e) => setRuolo(e.target.value)}
-          required
-        />
+    <Card className="card-experience position-relative">
+      <Row className="ms-3 mt-3">
+        <Col xs={1}>
+          <Card.Title className="fw-bold  mt-2">Esperienza</Card.Title>
+        </Col>
+      </Row>
+      {specific && (
+        <Card.Body>
+          <Card className=" border-bottom-1">
+            <Row className="align-items-center">
+              <Col xs={2}>
+                <Card.Img
+                  src="https://static.licdn.com/aero-v1/sc/h/p4pvtlgggtwlz9lht17nvnqq"
+                  className="img-esperienze ms-3"
+                />
+              </Col>
+              <Col xs={10} className="position-relative">
+                <Card.Title className="">{specific.company}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {specific.role}
+                </Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {specific.description}
+                </Card.Subtitle>
 
-        <input
-          type="text"
-          placeholder="Azienda"
-          value={azienda}
-          onChange={(e) => setAzienda(e.target.value)}
-          required
-        />
-
-        <input
-          type="text"
-          placeholder="Descrizione"
-          value={descrizione}
-          onChange={(e) => setDescrizione(e.target.value)}
-          required
-        />
-
-        <input
-          type="text"
-          placeholder="Area"
-          value={area}
-          onChange={(e) => setArea(e.target.value)}
-          required
-        />
-
-        <input
-          type="date"
-          placeholder="Inizio lavoro"
-          required
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-        />
-
-        <input
-          type="date"
-          placeholder="Fine lavoro"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-        />
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {specific.startDate}
+                </Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {specific.endDate}
+                </Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {specific.area}
+                </Card.Subtitle>
+              </Col>
+            </Row>
+          </Card>
+        </Card.Body>
+      )}
+    </Card>
   );
 }
 
