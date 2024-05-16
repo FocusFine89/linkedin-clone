@@ -80,3 +80,16 @@ body {
 .input-search-job {
   height: 2.1em;
 }
+
+.sidebarImgStyle {
+  width: 100%;
+  height: 100px;
+}
+
+.cirleImgStyle {
+  min-height: 100px;
+  width: 100px;
+  left: 50%;
+  top: 40px;
+  transform: translate(-50%);
+}
