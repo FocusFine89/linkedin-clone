@@ -44,7 +44,13 @@ const AddingPost = () => {
   return (
     <Card
       className="mb-2"
-      style={{ maxWidth: '750px', maxHeight: '500px', borderRadius: '0.3rem' }}
+      style={{
+        maxWidth: '900px',
+        maxHeight: '500px',
+        borderRadius: '0.3rem',
+        marginTop: '20px',
+        backgroundColor: 'white',
+      }}
     >
       <Card.Body>
         <Card.Title className="fw-bold">Aggiungi un Post</Card.Title>
@@ -55,13 +61,16 @@ const AddingPost = () => {
             className="rounded-circle me-3"
             style={{ width: '55px', height: '55px' }}
           />
-          <Button onClick={handleShow} variant="light" className="flex-grow-1">
+          <Button
+            onClick={handleShow}
+            variant="light"
+            className="flex-grow-1 text-start"
+          >
             Avvia un Post
           </Button>
-        </div>{' '}
-        <div className="d-flex justify-content-around">
+        </div>
+        <div className="d-flex justify-content-around mt-3">
           <Button variant="outline-white">
-            {' '}
             <i className="bi bi-image me-2"></i>Contenuti Multimediali
           </Button>
           <Button variant="outline-white">
