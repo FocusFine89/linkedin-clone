@@ -159,6 +159,11 @@ const MyNavBar = () => {
                 Per aziende
               </Link>
             </div>
+            <div className="Last-text">
+              <a href="#s">
+                <p>Passa a Premium per 0 EUR</p>
+              </a>
+            </div>
           </Nav>
         </Col>
       </Container>

@@ -39,3 +39,8 @@
 .Aziende-part {
   border-left: 1px solid lightgray;
 }
+
+.Last-text p,
+a {
+  color: #bb7309;
+}
