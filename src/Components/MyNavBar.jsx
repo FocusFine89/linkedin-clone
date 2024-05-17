@@ -5,9 +5,14 @@ import { Link, NavLink } from 'react-router-dom'
 const MyNavBar = () => {
   return (
     <Navbar bg="white" className="NavbarCustom">
-      <Container className="d-flex align-items-center">
+      <Container className="d-flex align-items-center ">
         <Col xs={1} className="text-end"></Col>
-        <Col xs={3}>
+        <Col xs={3} className="d-flex">
+          <img
+            src="https://cdn.icon-icons.com/icons2/2415/PNG/512/linkedin_original_logo_icon_146435.png"
+            alt=""
+            className="avatarStyle"
+          />
           <Form.Control
             className="SearchBar w-75 d-none d-lg-block"
             placeholder="Stefano Miceli"
@@ -136,7 +141,7 @@ const MyNavBar = () => {
                 Tu
               </NavLink>
             </div>
-            <div className="iconNavBar">
+            <div className="  Aziende-part iconNavBar">
               <Link className="navbarText pt-0 ms-3">
                 {' '}
                 <svg

@@ -9,6 +9,8 @@
   background-color: #0073b1;
   border-radius: 5px;
   color: black;
+
+  border: 1px solid lightgray;
 }
 
 .footerAside {
@@ -22,7 +24,8 @@
 #btnDetails {
   background-color: lightgray;
   width: 40%;
-  height: 25px;
+  height: 30px;
+  font-size: 15px;
   color: black;
 }
 
@@ -48,4 +51,5 @@
 .advertisement img {
   width: 98%;
   cursor: pointer;
+  border-radius: 5px;
 }

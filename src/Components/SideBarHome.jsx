@@ -40,7 +40,9 @@ const SideBarHome = () => {
   return (
     <div className="sidebar-container d-flex flex-column justify-center mt-4">
       <div className="bg-white sidebar-content">
-        <h4>LinkedIn Notizie</h4>
+        <h4>
+          LinkedIn Notizie <i class="bi bi-info-square-fill float-end"></i>
+        </h4>
         <span className="subTitle">Storie principali</span>
         <div className="notizie-container d-flex flex-column">
           {visibleNews.map((news, index) => (
@@ -52,7 +54,7 @@ const SideBarHome = () => {
           <Button
             variant="secondary"
             id="btnDetails"
-            className="btn p-0 mt-1"
+            className="btn p-0"
             onClick={() => setShowMore(!showMore)}
           >
             {showMore ? 'Meno Dettagli' : 'Vedi Altro'}
@@ -63,7 +65,6 @@ const SideBarHome = () => {
         <img
           src="https://i0.wp.com/academy.linkedinforbusiness.it/wp-content/uploads/2021/06/LinkedIn-Ads-strategy-2021.png?fit=1400%2C1400&ssl=1"
           alt="Pubblicità"
-          href="#"
         />
       </div>
       <Row className="footerAside">
