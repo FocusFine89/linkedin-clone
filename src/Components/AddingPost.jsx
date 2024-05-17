@@ -49,7 +49,7 @@ const AddingPost = () => {
         maxWidth: '900px',
         maxHeight: '500px',
         borderRadius: '0.3rem',
-        marginTop: '20px',
+        marginTop: '25px',
         backgroundColor: 'white',
       }}
     >
