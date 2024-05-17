@@ -12,15 +12,14 @@ import Analisi from "./Analisi";
 import Risorse from "./Risorse";
 import Info from "./Info";
 import Sidebar from "./Sidebar";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { getUserAction } from "../redux/actions/getUserAction";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 import Esperienze from "./Esperienze";
 import ImageUpload from "./ImageUpload";
 
 const Main = () => {
   const user = useSelector((state) => state.userMe.content);
-  const dispatch = useDispatch();
+
   // nuova parte
 
   const [showModal, setShowModal] = useState(false);
@@ -37,9 +36,9 @@ const Main = () => {
 
   // fine nuova parte
 
-  useEffect(() => {
-    dispatch(getUserAction());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getUserAction());
+  // }, []);
 
   return (
     <Container fluid className="main">
