@@ -15,7 +15,7 @@ const MyNavBar = () => {
           />
           <Form.Control
             className="SearchBar w-75 d-none d-lg-block"
-            placeholder="Stefano Miceli"
+            placeholder="Cerca"
             aria-label="Username"
           />
         </Col>
