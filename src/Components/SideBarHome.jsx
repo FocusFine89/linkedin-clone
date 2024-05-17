@@ -59,6 +59,13 @@ const SideBarHome = () => {
           </Button>
         </div>
       </div>
+      <div className="advertisement mt-3 ">
+        <img
+          src="https://i0.wp.com/academy.linkedinforbusiness.it/wp-content/uploads/2021/06/LinkedIn-Ads-strategy-2021.png?fit=1400%2C1400&ssl=1"
+          alt="Pubblicità"
+          href="#"
+        />
+      </div>
       <Row className="footerAside">
         <Col className="footer-col text-center col-6 pb-2">informazioni</Col>
         <Col className="footer-col text-center col-6 pb-2">accessibilità</Col>
