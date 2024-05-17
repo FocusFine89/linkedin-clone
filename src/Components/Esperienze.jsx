@@ -15,6 +15,16 @@ const Esperienze = () => {
   const experienceList = useSelector((state) => state.experienceList.content);
   const user = useSelector((state) => state.userMe.content);
 
+  const startDateExperience = (startDate) => {
+    const data = startDate.split("T");
+    return data[0];
+  };
+
+  const endDateExperience = (endDate) => {
+    const data = endDate.split("T");
+    return data[0];
+  };
+
   useEffect(() => {
     dispatch(getExperienceAction(user._id));
   }, []);
@@ -62,7 +72,10 @@ const Esperienze = () => {
                         {experience.description}
                       </Card.Text>
                       <Card.Text className="mb-1 text-muted">
-                        {experience.startDate} - {experience.endDate}
+                        {startDateExperience(experience.startDate)}
+                      </Card.Text>
+                      <Card.Text>
+                        {endDateExperience(experience.endDate)}
                       </Card.Text>
                       <Card.Text className="mb-1 text-muted">
                         {experience.area}
