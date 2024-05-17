@@ -23,7 +23,7 @@ const Main = () => {
   // nuova parte
 
   const [showModal, setShowModal] = useState(false)
-  const [profileImage, setProfileImage] = useState(null)
+  const [profileImage] = useState(null)
   const [selectedFile, setSelectedFile] = useState(null)
 
   const handleModalOpen = () => {

@@ -1,5 +1,5 @@
-import { Card, Col, Row } from "react-bootstrap";
-import MostraAnalisi from "./MostraAnalisi";
+import { Card, Col, Row } from 'react-bootstrap'
+import MostraAnalisi from './MostraAnalisi'
 
 const Risorse = () => {
   return (
@@ -9,7 +9,9 @@ const Risorse = () => {
         <Card.Subtitle className="mb-2 text-muted">Solo per te</Card.Subtitle>
         <Row>
           <Col xs={12} lg={12}>
-            <Card.Text className="fw-bold fs-custom">La mia rete</Card.Text>
+            <Card.Text className="fw-bold fs-custom">
+              <i class="bi bi-people-fill me-2"></i>La mia rete
+            </Card.Text>
             <Card.Subtitle>
               Salva e gestisci i tuoi collegamenti e interessi.
             </Card.Subtitle>
@@ -18,7 +20,7 @@ const Risorse = () => {
 
           <Col xs={12} lg={12}>
             <Card.Text className="fw-bold fs-custom">
-              Elementi salvati
+              <i class="bi bi-bookmark-fill"></i>Elementi salvati
             </Card.Text>
             <Card.Subtitle>
               Monitora le tue offerte di lavoro, i corsi e gli articoli
@@ -28,7 +30,7 @@ const Risorse = () => {
       </Card.Body>
       <MostraAnalisi title="Mostra tutte le risorse" />
     </Card>
-  );
-};
+  )
+}
 
-export default Risorse;
+export default Risorse

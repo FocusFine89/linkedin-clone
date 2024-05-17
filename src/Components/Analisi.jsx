@@ -1,5 +1,5 @@
-import { Card, Col, Row } from "react-bootstrap";
-import MostraAnalisi from "./MostraAnalisi";
+import { Card, Col, Row } from 'react-bootstrap'
+import MostraAnalisi from './MostraAnalisi'
 
 const Analisi = () => {
   return (
@@ -10,7 +10,7 @@ const Analisi = () => {
         <Row>
           <Col xs={12} lg={4}>
             <Card.Text className="fw-bold fs-custom">
-              vissualizzazioni del profilo
+              <i class="bi bi-people-fill me-2"></i>visualizzazioni del profilo
             </Card.Text>
             <Card.Subtitle>
               Scopri chi ha visitato il tuo profilo.
@@ -18,7 +18,7 @@ const Analisi = () => {
           </Col>
           <Col xs={12} lg={4}>
             <Card.Text className="fw-bold fs-custom">
-              impressioni del profilo
+              <i class="bi bi-graph-down-arrow me-2"></i>impressioni del profilo
             </Card.Text>
             <Card.Subtitle>
               Scopri chi sta interagendo con i tuoi post.
@@ -29,7 +29,7 @@ const Analisi = () => {
           </Col>
           <Col xs={12} lg={4}>
             <Card.Text className="fw-bold fs-custom">
-              comparse nei motori di ricerca
+              <i class="bi bi-search me-2"></i>comparse nei motori di ricerca
             </Card.Text>
             <Card.Subtitle>
               Vedi quante volte compari nei risultati di ricerca
@@ -37,9 +37,9 @@ const Analisi = () => {
           </Col>
         </Row>
       </Card.Body>
-      <MostraAnalisi title="Mostra tutte le analisi" />
+      <MostraAnalisi title="Mostra tutte le analisi " />
     </Card>
-  );
-};
+  )
+}
 
-export default Analisi;
+export default Analisi
