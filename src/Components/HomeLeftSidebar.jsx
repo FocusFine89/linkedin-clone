@@ -22,7 +22,10 @@ const HomeLeftSideBar = () => {
             </div>
             <Card.Body className="mt-5">
               <Card.Title>Ti diamo il benvenuto {user.name}</Card.Title>
-              <Card.Link className="" href="#">
+              <Card.Link
+                className="link-offset-2 link-underline link-underline-opacity-0"
+                href="#"
+              >
                 Aggiungi una foto
               </Card.Link>
               <hr />
@@ -44,7 +47,10 @@ const HomeLeftSideBar = () => {
                 Prova premium per 0 EUR
               </Card.Link>
               <hr />
-              <Card.Link href="#" className="card-link-black">
+              <Card.Link
+                href="#"
+                className="card-link-black link-offset-2 link-underline link-underline-opacity-0"
+              >
                 <span className="me-3">
                   <BookmarkFill />
                 </span>
@@ -58,17 +64,32 @@ const HomeLeftSideBar = () => {
         <Card>
           <Card.Body>
             <Card.Text>
-              <Card.Link href="#">Gruppi</Card.Link>
+              <Card.Link
+                href="#"
+                className="link-offset-2 link-underline link-underline-opacity-0"
+              >
+                Gruppi
+              </Card.Link>
             </Card.Text>
-            <Card.Text className="d-flex justify-content-between align-items-center">
-              <Card.Link href="#">Eventi </Card.Link>
+            <Card.Text className="d-flex justify-content-between align-items-center ">
+              <Card.Link
+                href="#"
+                className="link-offset-2 link-underline link-underline-opacity-0"
+              >
+                Eventi{" "}
+              </Card.Link>
               <Button type="button" className="p-0 bg-transparent border-0">
                 {" "}
                 <Plus size={30} color="black" />
               </Button>
             </Card.Text>
             <Card.Text>
-              <Card.Link href="#">Hashtag seguiti </Card.Link>
+              <Card.Link
+                href="#"
+                className="link-offset-2 link-underline link-underline-opacity-0"
+              >
+                Hashtag seguiti{" "}
+              </Card.Link>
             </Card.Text>
           </Card.Body>
           <MostraAnalisi title="Scopri di più" />
