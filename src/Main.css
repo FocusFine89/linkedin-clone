@@ -97,3 +97,9 @@ body {
 .card-link-black {
   color: black;
 }
+
+@media only screen and (max-width: 430px) {
+  .main {
+    width: 100%;
+  }
+}

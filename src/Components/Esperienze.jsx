@@ -1,23 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react'
-import { Button, Card, Col, Row } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from "react";
+import { Button, Card, Col, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import {
   deleteExperienceAction,
   getExperienceAction,
-} from '../redux/actions/getExperienceAction'
-import ModalCreate from './ModalCreate'
-import { Link } from 'react-router-dom'
+} from "../redux/actions/getExperienceAction";
+import ModalCreate from "./ModalCreate";
+import { Link } from "react-router-dom";
 
 const Esperienze = () => {
-  const [modalShow, setModalShow] = useState(false)
-  const dispatch = useDispatch()
-  const experienceList = useSelector(state => state.experienceList.content)
-  const user = useSelector(state => state.userMe.content)
+  const [modalShow, setModalShow] = useState(false);
+  const dispatch = useDispatch();
+  const experienceList = useSelector((state) => state.experienceList.content);
+  const user = useSelector((state) => state.userMe.content);
 
   useEffect(() => {
-    dispatch(getExperienceAction(user._id))
-  }, [])
+    dispatch(getExperienceAction(user._id));
+  }, []);
 
   return (
     <Card className="card-experience my-4 p-3 mt-2 position-relative bg-light ">
@@ -37,7 +37,7 @@ const Esperienze = () => {
 
       <Card.Body>
         {experienceList.length > 0 &&
-          experienceList.slice(0, 4).map(experience => (
+          experienceList.slice(0, 4).map((experience) => (
             <Card
               key={experience._id}
               className="mb-3 p-2 border rounded shadow-sm"
@@ -68,17 +68,17 @@ const Esperienze = () => {
                         {experience.area}
                       </Card.Text>
                     </div>
-                    <div>
+                    <div className="d-flex align-items-center">
                       <Link
                         to={`/modifica/${user._id}/${experience._id}`}
-                        className="text-primary ms-2"
+                        className="text-primary me-2"
                       >
                         <img src="./pencil-square.svg" alt="Edit" />
                       </Link>
                       <Button
                         variant="outline-danger"
                         size="sm"
-                        className="mt-2"
+                        className=" border-0"
                         onClick={() =>
                           dispatch(
                             deleteExperienceAction(user._id, experience._id)
@@ -106,7 +106,7 @@ const Esperienze = () => {
         </Link>
       )}
     </Card>
-  )
-}
+  );
+};
 
-export default Esperienze
+export default Esperienze;
