@@ -1,32 +1,34 @@
+import { useEffect } from "react";
 import { Image } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { getCommentsAction } from "../redux/actions/getCommentsAction";
 
 const Comments = () => {
+  const arrOfComments = useSelector((state) => state.getComments.content);
+  console.log("arrOfComments", arrOfComments);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCommentsAction());
+  }, [dispatch]);
   return (
     <>
-      <div className="d-flex">
-        <Image
-          className="avatarStyle rounded-circle"
-          src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
-          alt=""
-        />
-
-        <input
-          className="rounded-4 px-2"
-          type="text"
-          placeholder="Aggiungi un commento..."
-        />
-      </div>
-      <div className="d-flex">
-        <Image
-          className="avatarStyle rounded-circle"
-          src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
-          alt=""
-        />
-        <div className="bg-body-secondary rounded-2">
-          <h6>Andrea rossi</h6>
-          <p>Questo è il mio commento!</p>
-        </div>
-      </div>
+      {arrOfComments.length > 0 &&
+        arrOfComments.map((singleComment) => {
+          return (
+            <div key={singleComment.id} className="d-flex">
+              <Image
+                className="avatarStyle rounded-circle"
+                src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+                alt=""
+              />
+              <div className="bg-body-secondary rounded-2">
+                <h6>{singleComment.author}</h6>
+                <p>{singleComment.comment}</p>
+              </div>
+            </div>
+          );
+        })}
     </>
   );
 };
