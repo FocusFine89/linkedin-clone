@@ -4,8 +4,15 @@ import SideBarHome from "./SideBarHome";
 import Post from "./Post";
 import AddingPost from "./AddingPost";
 import HomeLeftSideBar from "./HomeLeftSidebar";
+import { getUserAction } from "../redux/actions/getUserAction";
+import { useDispatch } from "react-redux";
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserAction());
+  }, []);
+
   return (
     <Container>
       <Row>

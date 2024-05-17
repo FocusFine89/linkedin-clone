@@ -93,3 +93,7 @@ body {
   top: 40px;
   transform: translate(-50%);
 }
+
+.card-link-black {
+  color: black;
+}
