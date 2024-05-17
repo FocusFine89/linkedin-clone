@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Col, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostAction } from "../redux/actions/getPost";
-import Comments from "./Comments"; 
+import Comments from "./Comments";
 
 const Post = () => {
   const posts = useSelector((state) => state.getPost.content);
-  const loading = useSelector((state)=>state.getPost.loading)
+  const loading = useSelector((state) => state.getPost.loading);
   const dispatch = useDispatch();
   const [visibleComments, setVisibleComments] = useState({});
 
@@ -23,9 +23,16 @@ const Post = () => {
 
   return (
     <>
-    {loading && <div className="text-center"><Spinner className="spinner-custom mt-5" animation="border" role="status">
-    </Spinner></div>}
-      {posts.map((singlePost, index) => (
+      {loading && (
+        <div className="text-center">
+          <Spinner
+            className="spinner-custom mt-5"
+            animation="border"
+            role="status"
+          ></Spinner>
+        </div>
+      )}
+      {posts.slice(-100).map((singlePost, index) => (
         <Col key={index} md={5} className="mb-3 w-100 bg-light">
           <div className="post-wrapper p-4 border rounded">
             <div className="d-flex justify-content-between align-items-center mb-3">
