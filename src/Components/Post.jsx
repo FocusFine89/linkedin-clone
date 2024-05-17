@@ -32,7 +32,7 @@ const Post = () => {
           ></Spinner>
         </div>
       )}
-      {posts.slice(-100).map((singlePost, index) => (
+      {posts.reverse().map((singlePost, index) => (
         <Col key={index} md={5} className="mb-3 w-100 bg-light">
           <div className="post-wrapper p-4 border rounded">
             <div className="d-flex justify-content-between align-items-center mb-3">
