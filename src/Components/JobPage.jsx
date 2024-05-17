@@ -1,46 +1,46 @@
-import { useState } from 'react'
-import { Alert, Button, Card, Col, Row, Spinner } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import JobsSidebar from './JobsSidebar'
+import { useState } from "react";
+import { Alert, Button, Card, Col, Row, Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import JobsSidebar from "./JobsSidebar";
 
 const JobPage = () => {
-  const [jobs, setJobs] = useState([])
-  const [search, setSearch] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [jobs, setJobs] = useState([]);
+  const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const getFetchJobs = searchJob => {
-    setLoading(true)
+  const getFetchJobs = (searchJob) => {
+    setLoading(true);
 
     fetch(
       `https://strive-benchmark.herokuapp.com/api/jobs?search=${searchJob}`,
       {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       }
     )
-      .then(response => {
+      .then((response) => {
         if (response.ok) {
-          return response.json()
+          return response.json();
         } else {
-          throw new Error('Errore nella fetch')
+          throw new Error("Errore nella fetch");
         }
       })
-      .then(response => {
-        setJobs(response.data)
+      .then((response) => {
+        setJobs(response.data);
       })
-      .catch(error => {
-        console.error('Errore durante la fetch:', error)
+      .catch((error) => {
+        console.error("Errore durante la fetch:", error);
       })
       .finally(() => {
-        setLoading(false)
-      })
-  }
+        setLoading(false);
+      });
+  };
 
   return (
     <Row className="justify-content-center my-3">
-      <Col xs={12} md={3}>
+      <Col xs={12} md={2}>
         <JobsSidebar />
       </Col>
       <Col xs={12} md={6}>
@@ -49,7 +49,7 @@ const JobPage = () => {
             className="form-control me-2"
             placeholder="Cerca lavoro"
             value={search}
-            onChange={e => setSearch(e.target.value)}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <Button
             className="btn btn-primary"
@@ -72,7 +72,7 @@ const JobPage = () => {
                 </Spinner>
               </div>
             ) : jobs.length > 0 ? (
-              jobs.slice(0, 10).map(job => (
+              jobs.slice(0, 10).map((job) => (
                 <Card key={job.id} className="border-0 mb-3">
                   <Card.Body>
                     <Card.Title>
@@ -97,7 +97,7 @@ const JobPage = () => {
         </Card>
       </Col>
     </Row>
-  )
-}
+  );
+};
 
-export default JobPage
+export default JobPage;
