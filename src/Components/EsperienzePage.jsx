@@ -1,25 +1,35 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react'
-import { Button, Card, Col, Row } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from "react";
+import { Button, Card, Col, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import {
   deleteExperienceAction,
   getExperienceAction,
-} from '../redux/actions/getExperienceAction'
-import ModalCreate from './ModalCreate'
-import { Link, useParams } from 'react-router-dom'
-import '../EsperienzePage.css' // Importa il file CSS personalizzato
+} from "../redux/actions/getExperienceAction";
+import ModalCreate from "./ModalCreate";
+import { Link, useParams } from "react-router-dom";
+import "../EsperienzePage.css"; // Importa il file CSS personalizzato
 
 const EsperienzePage = () => {
-  const [modalShow, setModalShow] = useState(false)
-  const dispatch = useDispatch()
-  const experienceList = useSelector(state => state.experienceList.content)
-  const user = useSelector(state => state.userMe.content)
-  const params = useParams()
+  const [modalShow, setModalShow] = useState(false);
+  const dispatch = useDispatch();
+  const experienceList = useSelector((state) => state.experienceList.content);
+  const user = useSelector((state) => state.userMe.content);
+  const params = useParams();
+
+  const startDateExperience = (startDate) => {
+    const data = startDate.split("T");
+    return data[0];
+  };
+
+  const endDateExperience = (endDate) => {
+    const data = endDate.split("T");
+    return data[0];
+  };
 
   useEffect(() => {
-    dispatch(getExperienceAction(params.userID))
-  }, [])
+    dispatch(getExperienceAction(params.userID));
+  }, []);
 
   return (
     <Card className="card-experience my-4 p-4 shadow-sm">
@@ -39,7 +49,7 @@ const EsperienzePage = () => {
       </Row>
       <Card.Body>
         {experienceList.length > 0 ? (
-          experienceList.map(experience => (
+          experienceList.map((experience) => (
             <Card
               key={experience._id}
               className="mb-3 p-2 border rounded shadow-sm experience-card"
@@ -62,7 +72,10 @@ const EsperienzePage = () => {
                         {experience.description}
                       </Card.Text>
                       <Card.Text className="mb-1 text-muted">
-                        {experience.startDate} - {experience.endDate}
+                        {startDateExperience(experience.startDate)}
+                      </Card.Text>
+                      <Card.Text>
+                        {startDateExperience(experience.endDate)}
                       </Card.Text>
                       <Card.Text className="mb-1 text-muted">
                         {experience.area}
@@ -105,7 +118,7 @@ const EsperienzePage = () => {
         </Link>
       </div>
     </Card>
-  )
-}
+  );
+};
 
-export default EsperienzePage
+export default EsperienzePage;
