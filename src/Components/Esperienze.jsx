@@ -1,36 +1,35 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react'
+import { Button, Card, Col, Row } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   deleteExperienceAction,
   getExperienceAction,
-} from "../redux/actions/getExperienceAction";
-import ModalCreate from "./ModalCreate";
-import { Link } from "react-router-dom";
+} from '../redux/actions/getExperienceAction'
+import ModalCreate from './ModalCreate'
+import { Link } from 'react-router-dom'
 
 const Esperienze = () => {
-  const [modalShow, setModalShow] = useState(false);
-
-  const dispatch = useDispatch();
-  const experienceList = useSelector((state) => state.experienceList.content);
-  const user = useSelector((state) => state.userMe.content);
+  const [modalShow, setModalShow] = useState(false)
+  const dispatch = useDispatch()
+  const experienceList = useSelector(state => state.experienceList.content)
+  const user = useSelector(state => state.userMe.content)
 
   useEffect(() => {
-    dispatch(getExperienceAction(user._id));
-  }, []);
+    dispatch(getExperienceAction(user._id))
+  }, [])
 
   return (
-    <Card className="card-experience position-relative">
-      <Row>
-        <Col xs={10}>
-          <Card.Title className="fw-bold ms-3 mt-3">Esperienza</Card.Title>
+    <Card className="card-experience my-4 p-3 position-relative bg-light ">
+      <Row className="align-items-center">
+        <Col xs={8}>
+          <Card.Title className="fw-bold">Esperienze</Card.Title>
         </Col>
-        <Col>
+        <Col xs={4} className="text-end">
           <img
             src="./plus.svg"
-            alt=""
-            className="button-add"
+            alt="Add Experience"
+            className="button-add cursor-pointer bg-light"
             onClick={() => setModalShow(true)}
           />
         </Col>
@@ -38,63 +37,76 @@ const Esperienze = () => {
 
       <Card.Body>
         {experienceList.length > 0 &&
-          experienceList.slice(0, 4).map((experience) => {
-            return (
-              <Card key={experience._id} className=" border-bottom-1">
-                <Row className="align-items-center">
-                  <Col xs={2}>
-                    <Card.Img
-                      src="https://static.licdn.com/aero-v1/sc/h/p4pvtlgggtwlz9lht17nvnqq"
-                      className="img-esperienze ms-3"
-                    />
-                  </Col>
-                  <Col xs={10} className="position-relative">
-                    <Card.Title className="">{experience.comany}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      {experience.role}
-                    </Card.Subtitle>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      {experience.description}
-                    </Card.Subtitle>
-
-                    <Card.Subtitle className="mb-2 text-muted">
-                      {experience.startDate}
-                    </Card.Subtitle>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      {experience.endDate}
-                    </Card.Subtitle>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      {experience.area}
-                    </Card.Subtitle>
-                    <div className="position-absolute button-group-experience">
+          experienceList.slice(0, 4).map(experience => (
+            <Card
+              key={experience._id}
+              className="mb-3 p-2 border rounded shadow-sm"
+            >
+              <Row className="align-items-center">
+                <Col xs={2}>
+                  <Card.Img
+                    src="https://static.licdn.com/aero-v1/sc/h/p4pvtlgggtwlz9lht17nvnqq"
+                    className="img-esperienze rounded-circle"
+                  />
+                </Col>
+                <Col xs={10}>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div>
+                      <Card.Title className="fw-bold mb-1">
+                        {experience.company}
+                      </Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted">
+                        {experience.role}
+                      </Card.Subtitle>
+                      <Card.Text className="mb-1 text-muted">
+                        {experience.description}
+                      </Card.Text>
+                      <Card.Text className="mb-1 text-muted">
+                        {experience.startDate} - {experience.endDate}
+                      </Card.Text>
+                      <Card.Text className="mb-1 text-muted">
+                        {experience.area}
+                      </Card.Text>
+                    </div>
+                    <div>
                       <Link
                         to={`/modifica/${user._id}/${experience._id}`}
-                        className="bg-transparent border-0 text-dark rounded-5"
+                        className="text-primary ms-2"
                       >
-                        <img src="./pencil-square.svg" alt="" />
+                        <img src="./pencil-square.svg" alt="Edit" />
                       </Link>
                       <Button
-                        variant="secondary"
-                        className="bg-transparent border-0 text-dark"
+                        variant="outline-danger"
+                        size="sm"
+                        className="mt-2"
                         onClick={() =>
-                          deleteExperienceAction(user._id, experience._id)
+                          dispatch(
+                            deleteExperienceAction(user._id, experience._id)
+                          )
                         }
                       >
-                        <img src="./trash3.svg" alt="" />
+                        <img src="./trash3.svg" alt="Delete" />
                       </Button>
                     </div>
-                  </Col>
-                </Row>
-              </Card>
-            );
-          })}
+                  </div>
+                </Col>
+              </Row>
+            </Card>
+          ))}
       </Card.Body>
-      <ModalCreate show={modalShow} onHide={() => setModalShow(false)} />
-      <Link to={`/experience/${user._id}`} className="btn btn-light">
-        Mostra altro...
-      </Link>
-    </Card>
-  );
-};
 
-export default Esperienze;
+      <ModalCreate show={modalShow} onHide={() => setModalShow(false)} />
+
+      {experienceList.length > 4 && (
+        <Link
+          to={`/experience/${user._id}`}
+          className="btn btn-light w-100 mt-2"
+        >
+          Show More...
+        </Link>
+      )}
+    </Card>
+  )
+}
+
+export default Esperienze

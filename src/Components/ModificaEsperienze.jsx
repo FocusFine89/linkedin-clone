@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import { useDispatch, useSelector } from "react-redux";
-
-import { Link, useParams } from "react-router-dom";
-import { Alert, Card, Col, Row } from "react-bootstrap";
+import { useEffect, useState } from 'react'
+import { Button, Card, Col, Row, Alert } from 'react-bootstrap'
+import { Link, useParams } from 'react-router-dom'
+import '../ModificaEsperienze.css'
 
 function ModificaEsperienze() {
-  const [azienda, setAzienda] = useState("");
-  const [descrizione, setDescrizione] = useState("");
-  const [area, setArea] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [ruolo, setRuolo] = useState("");
-  const [modificato, setModificato] = useState(false);
-
-  const params = useParams();
+  const [azienda, setAzienda] = useState('')
+  const [descrizione, setDescrizione] = useState('')
+  const [area, setArea] = useState('')
+  const [ruolo, setRuolo] = useState('')
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+  const [modificato, setModificato] = useState(false)
+  const params = useParams()
 
   const ModifieSpecificExperienceAction = (id_user, expId) => {
     const expObj = {
@@ -25,74 +21,69 @@ function ModificaEsperienze() {
       endDate: endDate,
       description: descrizione,
       area: area,
-    };
+    }
+
     fetch(
       `https://striveschool-api.herokuapp.com/api/profile/${id_user}/experiences/${expId}`,
       {
-        method: "PUT",
+        method: 'PUT',
         body: JSON.stringify(expObj),
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYmVmMjE2N2U1MzAwMTVmYTY5NzQiLCJpYXQiOjE3MTU1ODQ3NTQsImV4cCI6MTcxNjc5NDM1NH0.woy53zt1_zmruJl4tAXEXJzDTX-iJFUOCihD3MU3Coc",
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYmVmMjE2N2U1MzAwMTVmYTY5NzQiLCJpYXQiOjE3MTU1ODQ3NTQsImV4cCI6MTcxNjc5NDM1NH0.woy53zt1_zmruJl4tAXEXJzDTX-iJFUOCihD3MU3Coc',
         },
       }
-    ).then((response) => {
+    ).then(response => {
       if (response.ok) {
-        setModificato(true);
-        console.log("ok");
+        setModificato(true)
+        console.log('ok')
       }
-    });
-  };
+    })
+  }
 
   const getSpecificExperienceAction = (id_user, expid) => {
     fetch(
       `https://striveschool-api.herokuapp.com/api/profile/${id_user}/experiences/${expid}`,
       {
-        method: "GET",
+        method: 'GET',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYmVmMjE2N2U1MzAwMTVmYTY5NzQiLCJpYXQiOjE3MTU1ODQ3NTQsImV4cCI6MTcxNjc5NDM1NH0.woy53zt1_zmruJl4tAXEXJzDTX-iJFUOCihD3MU3Coc",
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjQxYmVmMjE2N2U1MzAwMTVmYTY5NzQiLCJpYXQiOjE3MTU1ODQ3NTQsImV4cCI6MTcxNjc5NDM1NH0.woy53zt1_zmruJl4tAXEXJzDTX-iJFUOCihD3MU3Coc',
         },
       }
     )
-      .then((response) => {
+      .then(response => {
         if (response.ok) {
-          return response.json();
+          return response.json()
         }
       })
-      .then((response) => {
-        const dateStart = response.startDate.split("T");
-        const dateEnd = response.endDate.split("T");
-        setAzienda(response.company);
-        setDescrizione(response.description);
-        setArea(response.area);
-        setStartDate(dateStart[0]);
-        setEndDate(dateEnd[0]);
-        setRuolo(response.role);
-        console.log(dateStart, dateEnd);
-        console.log(startDate);
-        console.log(endDate);
-      });
-  };
+      .then(response => {
+        const dateStart = response.startDate.split('T')[0]
+        const dateEnd = response.endDate.split('T')[0]
+        setAzienda(response.company)
+        setDescrizione(response.description)
+        setArea(response.area)
+        setStartDate(dateStart)
+        setEndDate(dateEnd)
+        setRuolo(response.role)
+      })
+  }
 
   useEffect(() => {
-    // dispatch(getSpecificExperienceAction(params.userID, params.expID));
-    //aggiungi la fetch qui
-    getSpecificExperienceAction(params.userID, params.expID);
-  }, []);
+    getSpecificExperienceAction(params.userID, params.expID)
+  }, [])
 
   return (
-    <Card className="card-experience position-relative">
+    <Card className="card-experience text-center">
       <Row className="ms-3 mt-3">
-        <Col xs={1}>
-          <Card.Title className="fw-bold  mt-2">Esperienza</Card.Title>
+        <Col xs={12}>
+          <Card.Title className="fw-bold mt-2">Modifica Esperienza</Card.Title>
         </Col>
       </Row>
-
       <Card.Body>
-        <Card className=" border-bottom-1">
+        <Card className="border-0 mb-3">
           <Row className="align-items-center">
             <Col xs={2}>
               <Card.Img
@@ -104,42 +95,49 @@ function ModificaEsperienze() {
               xs={10}
               className="position-relative d-flex flex-column mod-exp"
             >
-              <label htmlFor="azienda">Azienda:</label>
+              <label htmlFor="azienda" className="mb-2">
+                Azienda:
+              </label>
               <input
-                className="mb-2"
-                type="text"
                 id="azienda"
+                className="form-control mb-3"
+                type="text"
                 value={azienda}
-                onChange={(e) => setAzienda(e.target.value)}
-              ></input>
-              <label htmlFor="ruolo">Ruolo:</label>
+                onChange={e => setAzienda(e.target.value)}
+              />
+              <label htmlFor="ruolo" className="mb-2">
+                Ruolo:
+              </label>
               <input
                 id="ruolo"
-                className="mb-2 text-muted"
+                className="form-control mb-3"
                 type="text"
                 value={ruolo}
-                onChange={(e) => setRuolo(e.target.value)}
-              ></input>
-              <label htmlFor="desc">Descrizione:</label>
+                onChange={e => setRuolo(e.target.value)}
+              />
+              <label htmlFor="descrizione" className="mb-2">
+                Descrizione:
+              </label>
               <input
-                id="desc"
-                className="mb-2 text-muted"
+                id="descrizione"
+                className="form-control mb-3"
                 type="text"
                 value={descrizione}
-                onChange={(e) => setDescrizione(e.target.value)}
-              ></input>
-
-              <label htmlFor="area">Area:</label>
+                onChange={e => setDescrizione(e.target.value)}
+              />
+              <label htmlFor="area" className="mb-2">
+                Area:
+              </label>
               <input
                 id="area"
-                className="mb-2 text-muted"
+                className="form-control mb-3"
                 type="text"
                 value={area}
-                onChange={(e) => setArea(e.target.value)}
-              ></input>
+                onChange={e => setArea(e.target.value)}
+              />
               <Button
                 type="button"
-                className="btn btn-success "
+                className="btn btn-success align-self-start"
                 onClick={() =>
                   ModifieSpecificExperienceAction(params.userID, params.expID)
                 }
@@ -148,16 +146,16 @@ function ModificaEsperienze() {
               </Button>
             </Col>
           </Row>
-          {modificato && (
-            <Alert variant="success" className="mt-3">
-              hai modificato l'esperienza,{" "}
-              <Link to="/profile">Torna al tuo Profilo</Link>{" "}
-            </Alert>
-          )}
         </Card>
+        {modificato && (
+          <Alert variant="success" className="mt-3">
+            Esperienza modificata con successo!{' '}
+            <Link to="/profile">Torna al tuo profilo</Link>
+          </Alert>
+        )}
       </Card.Body>
     </Card>
-  );
+  )
 }
 
-export default ModificaEsperienze;
+export default ModificaEsperienze
