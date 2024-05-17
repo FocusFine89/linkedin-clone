@@ -1,20 +1,29 @@
-import { Col } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { getPostAction } from '../redux/actions/getPost'
-import { useEffect } from 'react'
+import React, { useState, useEffect } from "react";
+import { Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { getPostAction } from "../redux/actions/getPost";
+import Comments from "./Comments"; 
 
 const Post = () => {
-  const posts = useSelector(state => state.getPost.content)
-  const dispatch = useDispatch()
+  const posts = useSelector((state) => state.getPost.content);
+  const dispatch = useDispatch();
+  const [visibleComments, setVisibleComments] = useState({});
 
   useEffect(() => {
-    dispatch(getPostAction())
-  }, [dispatch])
+    dispatch(getPostAction());
+  }, [dispatch]);
+
+  const toggleComments = (postIndex) => {
+    setVisibleComments((prevState) => ({
+      ...prevState,
+      [postIndex]: !prevState[postIndex],
+    }));
+  };
 
   return (
     <>
       {posts.map((singlePost, index) => (
-        <Col key={index} md={5} className="mb-3  w-100 bg-light">
+        <Col key={index} md={5} className="mb-3 w-100 bg-light">
           <div className="post-wrapper p-4 border rounded">
             <div className="d-flex justify-content-between align-items-center mb-3">
               <div className="d-flex align-items-center">
@@ -37,12 +46,12 @@ const Post = () => {
             <div className="d-flex justify-content-evenly">
               <div>
                 <h5>
-                  <i className="bi bi-hand-thumbs-up"></i> Consiglia{' '}
+                  <i className="bi bi-hand-thumbs-up"></i> Consiglia
                 </h5>
               </div>
               <div>
-                <h5>
-                  <i className="bi bi-chat-dots"></i> Commenta{' '}
+                <h5 onClick={() => toggleComments(index)}>
+                  <i className="bi bi-chat-dots"></i> Commenta
                 </h5>
               </div>
               <div>
@@ -56,11 +65,12 @@ const Post = () => {
                 </h5>
               </div>
             </div>
+            {visibleComments[index] && <Comments />}
           </div>
         </Col>
       ))}
     </>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;
