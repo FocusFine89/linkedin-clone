@@ -20,7 +20,7 @@ const Esperienze = () => {
   }, [])
 
   return (
-    <Card className="card-experience my-4 p-3 position-relative bg-light ">
+    <Card className="card-experience my-4 p-3 mt-2 position-relative bg-light ">
       <Row className="align-items-center">
         <Col xs={8}>
           <Card.Title className="fw-bold">Esperienze</Card.Title>

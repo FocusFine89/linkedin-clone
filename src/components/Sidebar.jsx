@@ -12,12 +12,12 @@ const Sidebar = () => {
   }, [])
 
   return (
-    <div className="sidebar p-3">
+    <div className="sidebar p-1  mt-1">
       <Row className="mb-4">
         <Col>
           <Card>
             <Card.Body>
-              <h5 className="mb-3">Altri profili simili</h5>
+              <h5 className="mb-2">Altri profili simili</h5>
               {profiles.length > 0 &&
                 profiles.slice(0, 4).map((singleProfile, index) => (
                   <div key={index} className="mt-3">

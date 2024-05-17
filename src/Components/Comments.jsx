@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Image } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getCommentsAction } from "../redux/actions/getCommentsAction";
 

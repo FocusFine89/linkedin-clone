@@ -4,6 +4,7 @@ import { MdOutlinePhotoSizeSelectActual } from 'react-icons/md'
 import { AiFillYoutube } from 'react-icons/ai'
 import { HiOutlineDocumentChartBar } from 'react-icons/hi2'
 import { BsThreeDots } from 'react-icons/bs'
+import '../AddingPost.css'
 
 const AddingPost = () => {
   const [show, setShow] = useState(false)
@@ -48,7 +49,7 @@ const AddingPost = () => {
         maxWidth: '900px',
         maxHeight: '500px',
         borderRadius: '0.3rem',
-        marginTop: '20px',
+        marginTop: '25px',
         backgroundColor: 'white',
       }}
     >
@@ -71,13 +72,13 @@ const AddingPost = () => {
         </div>
         <div className="d-flex justify-content-around mt-3">
           <Button variant="outline-white">
-            <i className="bi bi-image me-2"></i>Contenuti Multimediali
+            <i className="pictures  bi bi-image me-2"></i>Contenuti Multimediali
           </Button>
           <Button variant="outline-white">
-            <i className="bi bi-calendar3 me-2"></i>Evento
+            <i className="Evento bi bi-calendar3 me-2"></i>Evento
           </Button>
           <Button variant="outline-white">
-            <i className="bi bi-clipboard2-heart me-2"></i>
+            <i className="Articolo bi bi-clipboard2-heart me-2"></i>
             Scrivi un Articolo
           </Button>
         </div>

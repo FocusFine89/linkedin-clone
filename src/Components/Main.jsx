@@ -7,32 +7,32 @@ import {
   Image,
   Modal,
   Row,
-} from "react-bootstrap";
-import Analisi from "./Analisi";
-import Risorse from "./Risorse";
-import Info from "./Info";
-import Sidebar from "./Sidebar";
-import { useSelector } from "react-redux";
-import { useState } from "react";
-import Esperienze from "./Esperienze";
-import ImageUpload from "./ImageUpload";
+} from 'react-bootstrap'
+import Analisi from './Analisi'
+import Risorse from './Risorse'
+import Info from './Info'
+import Sidebar from './Sidebar'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
+import Esperienze from './Esperienze'
+import ImageUpload from './ImageUpload'
 
 const Main = () => {
-  const user = useSelector((state) => state.userMe.content);
+  const user = useSelector(state => state.userMe.content)
 
   // nuova parte
 
-  const [showModal, setShowModal] = useState(false);
-  const [profileImage, setProfileImage] = useState(null);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [showModal, setShowModal] = useState(false)
+  const [profileImage, setProfileImage] = useState(null)
+  const [selectedFile, setSelectedFile] = useState(null)
 
   const handleModalOpen = () => {
-    setShowModal(true);
-  };
+    setShowModal(true)
+  }
 
   const handleModalClose = () => {
-    setShowModal(false);
-  };
+    setShowModal(false)
+  }
 
   // fine nuova parte
 
@@ -41,7 +41,7 @@ const Main = () => {
   // }, []);
 
   return (
-    <Container fluid className="main">
+    <Container fluid className="main mt-2">
       <Row>
         {user && (
           <Col xs={12} md={8}>
@@ -60,7 +60,7 @@ const Main = () => {
                 <Image
                   src={
                     profileImage ||
-                    "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+                    'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png'
                   }
                   roundedCircle
                   className="profile-img mb-2"
@@ -78,7 +78,7 @@ const Main = () => {
                     userId={user._id}
                     selectedFile={selectedFile}
                     setSelectedFile={setSelectedFile}
-                  />{" "}
+                  />{' '}
                   <Button variant="dark" className="me-2 mt-4 p-1">
                     <i class="bi bi-images"></i> Fotogrammi
                   </Button>
@@ -149,7 +149,7 @@ const Main = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main
