@@ -8,6 +8,7 @@ import {
 } from "../redux/actions/getExperienceAction";
 import ModalCreate from "./ModalCreate";
 import { Link } from "react-router-dom";
+import { getUserAction } from "../redux/actions/getUserAction";
 
 const Esperienze = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -26,6 +27,7 @@ const Esperienze = () => {
   };
 
   useEffect(() => {
+    dispatch(getUserAction());
     dispatch(getExperienceAction(user._id));
   }, []);
 
